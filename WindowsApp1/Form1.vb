@@ -62,13 +62,7 @@
                 Dim message = MimeKit.MimeMessage.Load(DataGridView1.Rows(e.RowIndex).Cells(0).Value)
                 'Test sync
                 'Debug.WriteLine(message.HtmlBody)
-                Dim htmlPart = message.HtmlBody
-
-                If htmlPart = Nothing Then
-                    htmlPart = "<pre> " + message.TextBody + "</pre>"
-                End If
-
-                WebBrowser1.DocumentText = htmlPart
+                LoadEmail(message)
             Catch ex As IO.DirectoryNotFoundException
                 MessageBox.Show("File not found!")
                 Me.Controls.Clear()
@@ -88,13 +82,7 @@
                 Debug.WriteLine(DataGridView1.CurrentRow.Index + 1)
 
                 'Debug.WriteLine(message.HtmlBody)
-                Dim htmlPart = message.HtmlBody
-
-                If htmlPart = Nothing Then
-                    htmlPart = "<pre> " + message.TextBody + "</pre>"
-                End If
-
-                WebBrowser1.DocumentText = htmlPart
+                LoadEmail(message)
             Catch ex As IO.DirectoryNotFoundException
                 MessageBox.Show("File not found!")
                 Me.Controls.Clear()
@@ -108,13 +96,8 @@
                 Dim message = MimeKit.MimeMessage.Load(DataGridView1.Rows(DataGridView1.CurrentRow.Index + 1).Cells(0).Value)
                 Debug.WriteLine(DataGridView1.CurrentRow.Index - 1)
                 'Debug.WriteLine(message.HtmlBody)
-                Dim htmlPart = message.HtmlBody
+                LoadEmail(message)
 
-                If htmlPart = Nothing Then
-                    htmlPart = "<pre> " + message.TextBody + "</pre>"
-                End If
-
-                WebBrowser1.DocumentText = htmlPart
             Catch ex As IO.DirectoryNotFoundException
                 MessageBox.Show("File not found!")
                 Me.Controls.Clear()
@@ -134,7 +117,15 @@
         urlLabel.Text = e.ToElement.GetAttribute("href")
     End Sub
 
-    Private Sub panelHeader_Paint(sender As Object, e As PaintEventArgs) Handles panelHeader.Paint
+    Private Sub LoadEmail(email)
+        Dim htmlPart = email.HtmlBody
+        lblSubject.Text = email.Subject
+        lblFrom.Text = email.From.ToString
 
+        If htmlPart = Nothing Then
+            htmlPart = "<pre> " + email.TextBody + "</pre>"
+        End If
+
+        WebBrowser1.DocumentText = htmlPart
     End Sub
 End Class

@@ -26,16 +26,21 @@ Partial Class Form1
         Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.panelButtons = New System.Windows.Forms.Panel()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.panelHeader = New System.Windows.Forms.Panel()
+        Me.lblSubject = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
         Me.SplitContainer2 = New System.Windows.Forms.SplitContainer()
         Me.treeViewEmail = New System.Windows.Forms.TreeView()
         Me.urlLabel = New System.Windows.Forms.Label()
         Me.WebBrowser1 = New System.Windows.Forms.WebBrowser()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.lblFrom = New System.Windows.Forms.Label()
         Me.MenuStrip1.SuspendLayout()
         Me.panelButtons.SuspendLayout()
+        Me.panelHeader.SuspendLayout()
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
         Me.SplitContainer1.SuspendLayout()
@@ -79,14 +84,47 @@ Partial Class Form1
         Me.panelButtons.Size = New System.Drawing.Size(59, 656)
         Me.panelButtons.TabIndex = 3
         '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(3, 108)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(53, 47)
+        Me.Button1.TabIndex = 0
+        Me.Button1.Text = "Button1"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
         'panelHeader
         '
+        Me.panelHeader.Controls.Add(Me.lblFrom)
+        Me.panelHeader.Controls.Add(Me.Label2)
+        Me.panelHeader.Controls.Add(Me.lblSubject)
+        Me.panelHeader.Controls.Add(Me.Label1)
         Me.panelHeader.Dock = System.Windows.Forms.DockStyle.Top
         Me.panelHeader.Location = New System.Drawing.Point(0, 28)
         Me.panelHeader.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.panelHeader.Name = "panelHeader"
         Me.panelHeader.Size = New System.Drawing.Size(1093, 108)
         Me.panelHeader.TabIndex = 4
+        '
+        'lblSubject
+        '
+        Me.lblSubject.AutoSize = True
+        Me.lblSubject.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblSubject.Location = New System.Drawing.Point(284, 12)
+        Me.lblSubject.Name = "lblSubject"
+        Me.lblSubject.Size = New System.Drawing.Size(63, 17)
+        Me.lblSubject.TabIndex = 1
+        Me.lblSubject.Text = "Subject: "
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(214, 12)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(72, 17)
+        Me.Label1.TabIndex = 0
+        Me.Label1.Text = "Subject: "
         '
         'SplitContainer1
         '
@@ -170,14 +208,25 @@ Partial Class Form1
         Me.DataGridView1.Size = New System.Drawing.Size(1093, 182)
         Me.DataGridView1.TabIndex = 0
         '
-        'Button1
+        'Label2
         '
-        Me.Button1.Location = New System.Drawing.Point(3, 108)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(53, 47)
-        Me.Button1.TabIndex = 0
-        Me.Button1.Text = "Button1"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(229, 40)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(49, 17)
+        Me.Label2.TabIndex = 2
+        Me.Label2.Text = "From:"
+        '
+        'lblFrom
+        '
+        Me.lblFrom.AutoSize = True
+        Me.lblFrom.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblFrom.Location = New System.Drawing.Point(284, 40)
+        Me.lblFrom.Name = "lblFrom"
+        Me.lblFrom.Size = New System.Drawing.Size(63, 17)
+        Me.lblFrom.TabIndex = 3
+        Me.lblFrom.Text = "Subject: "
         '
         'Form1
         '
@@ -195,6 +244,8 @@ Partial Class Form1
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
         Me.panelButtons.ResumeLayout(False)
+        Me.panelHeader.ResumeLayout(False)
+        Me.panelHeader.PerformLayout()
         Me.SplitContainer1.Panel1.ResumeLayout(False)
         Me.SplitContainer1.Panel2.ResumeLayout(False)
         Me.SplitContainer1.ResumeLayout(False)
@@ -219,4 +270,8 @@ Partial Class Form1
     Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents urlLabel As Label
     Friend WithEvents Button1 As Button
+    Friend WithEvents lblSubject As Label
+    Friend WithEvents Label1 As Label
+    Friend WithEvents lblFrom As Label
+    Friend WithEvents Label2 As Label
 End Class
