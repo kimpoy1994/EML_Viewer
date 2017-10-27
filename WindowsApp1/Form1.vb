@@ -40,6 +40,8 @@
                 mDirectoryNode.Nodes.Add("*DUMMY*")
                 ' add this child TreeNode to the expanding TreeNode
                 e.Node.Nodes.Add(mDirectoryNode)
+
+                'additional comment
             Next
         Catch ex As Exception
             MessageBox.Show("Directory currently inaccessible!", "Directory Inaccessible")
