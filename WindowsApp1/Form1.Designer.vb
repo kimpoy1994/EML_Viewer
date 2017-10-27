@@ -33,7 +33,9 @@ Partial Class Form1
         Me.urlLabel = New System.Windows.Forms.Label()
         Me.WebBrowser1 = New System.Windows.Forms.WebBrowser()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.MenuStrip1.SuspendLayout()
+        Me.panelHeader.SuspendLayout()
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
         Me.SplitContainer1.SuspendLayout()
@@ -47,13 +49,13 @@ Partial Class Form1
         '
         Me.FileToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ExitToolStripMenuItem})
         Me.FileToolStripMenuItem.Name = "FileToolStripMenuItem"
-        Me.FileToolStripMenuItem.Size = New System.Drawing.Size(44, 24)
+        Me.FileToolStripMenuItem.Size = New System.Drawing.Size(37, 20)
         Me.FileToolStripMenuItem.Text = "File"
         '
         'ExitToolStripMenuItem
         '
         Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
-        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(108, 26)
+        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(92, 22)
         Me.ExitToolStripMenuItem.Text = "Exit"
         '
         'MenuStrip1
@@ -62,30 +64,35 @@ Partial Class Form1
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(1152, 28)
+        Me.MenuStrip1.Padding = New System.Windows.Forms.Padding(4, 2, 0, 2)
+        Me.MenuStrip1.Size = New System.Drawing.Size(864, 24)
         Me.MenuStrip1.TabIndex = 2
         Me.MenuStrip1.Text = "MenuStrip1"
         '
         'panelButtons
         '
         Me.panelButtons.Dock = System.Windows.Forms.DockStyle.Right
-        Me.panelButtons.Location = New System.Drawing.Point(1094, 28)
+        Me.panelButtons.Location = New System.Drawing.Point(820, 24)
+        Me.panelButtons.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.panelButtons.Name = "panelButtons"
-        Me.panelButtons.Size = New System.Drawing.Size(58, 656)
+        Me.panelButtons.Size = New System.Drawing.Size(44, 532)
         Me.panelButtons.TabIndex = 3
         '
         'panelHeader
         '
+        Me.panelHeader.Controls.Add(Me.Button1)
         Me.panelHeader.Dock = System.Windows.Forms.DockStyle.Top
-        Me.panelHeader.Location = New System.Drawing.Point(0, 28)
+        Me.panelHeader.Location = New System.Drawing.Point(0, 24)
+        Me.panelHeader.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.panelHeader.Name = "panelHeader"
-        Me.panelHeader.Size = New System.Drawing.Size(1094, 108)
+        Me.panelHeader.Size = New System.Drawing.Size(820, 88)
         Me.panelHeader.TabIndex = 4
         '
         'SplitContainer1
         '
         Me.SplitContainer1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.SplitContainer1.Location = New System.Drawing.Point(0, 136)
+        Me.SplitContainer1.Location = New System.Drawing.Point(0, 112)
+        Me.SplitContainer1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.SplitContainer1.Name = "SplitContainer1"
         Me.SplitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal
         '
@@ -96,14 +103,16 @@ Partial Class Form1
         'SplitContainer1.Panel2
         '
         Me.SplitContainer1.Panel2.Controls.Add(Me.DataGridView1)
-        Me.SplitContainer1.Size = New System.Drawing.Size(1094, 548)
-        Me.SplitContainer1.SplitterDistance = 364
+        Me.SplitContainer1.Size = New System.Drawing.Size(820, 444)
+        Me.SplitContainer1.SplitterDistance = 294
+        Me.SplitContainer1.SplitterWidth = 3
         Me.SplitContainer1.TabIndex = 5
         '
         'SplitContainer2
         '
         Me.SplitContainer2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.SplitContainer2.Location = New System.Drawing.Point(0, 0)
+        Me.SplitContainer2.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.SplitContainer2.Name = "SplitContainer2"
         '
         'SplitContainer2.Panel1
@@ -114,25 +123,28 @@ Partial Class Form1
         '
         Me.SplitContainer2.Panel2.Controls.Add(Me.urlLabel)
         Me.SplitContainer2.Panel2.Controls.Add(Me.WebBrowser1)
-        Me.SplitContainer2.Size = New System.Drawing.Size(1094, 364)
-        Me.SplitContainer2.SplitterDistance = 211
+        Me.SplitContainer2.Size = New System.Drawing.Size(820, 294)
+        Me.SplitContainer2.SplitterDistance = 158
+        Me.SplitContainer2.SplitterWidth = 3
         Me.SplitContainer2.TabIndex = 0
         '
         'treeViewEmail
         '
         Me.treeViewEmail.Dock = System.Windows.Forms.DockStyle.Fill
         Me.treeViewEmail.Location = New System.Drawing.Point(0, 0)
+        Me.treeViewEmail.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.treeViewEmail.Name = "treeViewEmail"
-        Me.treeViewEmail.Size = New System.Drawing.Size(211, 364)
+        Me.treeViewEmail.Size = New System.Drawing.Size(158, 294)
         Me.treeViewEmail.TabIndex = 0
         '
         'urlLabel
         '
         Me.urlLabel.AutoSize = True
         Me.urlLabel.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.urlLabel.Location = New System.Drawing.Point(0, 347)
+        Me.urlLabel.Location = New System.Drawing.Point(0, 281)
+        Me.urlLabel.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.urlLabel.Name = "urlLabel"
-        Me.urlLabel.Size = New System.Drawing.Size(0, 17)
+        Me.urlLabel.Size = New System.Drawing.Size(0, 13)
         Me.urlLabel.TabIndex = 1
         '
         'WebBrowser1
@@ -140,9 +152,10 @@ Partial Class Form1
         Me.WebBrowser1.AllowWebBrowserDrop = False
         Me.WebBrowser1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.WebBrowser1.Location = New System.Drawing.Point(0, 0)
-        Me.WebBrowser1.MinimumSize = New System.Drawing.Size(20, 20)
+        Me.WebBrowser1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.WebBrowser1.MinimumSize = New System.Drawing.Size(15, 16)
         Me.WebBrowser1.Name = "WebBrowser1"
-        Me.WebBrowser1.Size = New System.Drawing.Size(879, 364)
+        Me.WebBrowser1.Size = New System.Drawing.Size(659, 294)
         Me.WebBrowser1.TabIndex = 0
         '
         'DataGridView1
@@ -153,26 +166,38 @@ Partial Class Form1
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DataGridView1.Location = New System.Drawing.Point(0, 0)
+        Me.DataGridView1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.ReadOnly = True
         Me.DataGridView1.RowTemplate.Height = 24
-        Me.DataGridView1.Size = New System.Drawing.Size(1094, 180)
+        Me.DataGridView1.Size = New System.Drawing.Size(820, 147)
         Me.DataGridView1.TabIndex = 0
+        '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(506, 37)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(75, 23)
+        Me.Button1.TabIndex = 0
+        Me.Button1.Text = "Button1"
+        Me.Button1.UseVisualStyleBackColor = True
         '
         'Form1
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1152, 684)
+        Me.ClientSize = New System.Drawing.Size(864, 556)
         Me.Controls.Add(Me.SplitContainer1)
         Me.Controls.Add(Me.panelHeader)
         Me.Controls.Add(Me.panelButtons)
         Me.Controls.Add(Me.MenuStrip1)
         Me.MainMenuStrip = Me.MenuStrip1
+        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Name = "Form1"
         Me.Text = "Form1"
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
+        Me.panelHeader.ResumeLayout(False)
         Me.SplitContainer1.Panel1.ResumeLayout(False)
         Me.SplitContainer1.Panel2.ResumeLayout(False)
         Me.SplitContainer1.ResumeLayout(False)
@@ -196,4 +221,5 @@ Partial Class Form1
     Friend WithEvents WebBrowser1 As WebBrowser
     Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents urlLabel As Label
+    Friend WithEvents Button1 As Button
 End Class
