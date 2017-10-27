@@ -134,4 +134,7 @@
         urlLabel.Text = e.ToElement.GetAttribute("href")
     End Sub
 
+    Private Sub panelHeader_Paint(sender As Object, e As PaintEventArgs) Handles panelHeader.Paint
+
+    End Sub
 End Class

@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class Form1
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class Form1
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.FileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -33,9 +33,7 @@ Partial Class Form1
         Me.urlLabel = New System.Windows.Forms.Label()
         Me.WebBrowser1 = New System.Windows.Forms.WebBrowser()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.Button1 = New System.Windows.Forms.Button()
         Me.MenuStrip1.SuspendLayout()
-        Me.panelHeader.SuspendLayout()
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
         Me.SplitContainer1.SuspendLayout()
@@ -73,17 +71,16 @@ Partial Class Form1
         '
         Me.panelButtons.Dock = System.Windows.Forms.DockStyle.Right
         Me.panelButtons.Location = New System.Drawing.Point(820, 24)
-        Me.panelButtons.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.panelButtons.Margin = New System.Windows.Forms.Padding(2)
         Me.panelButtons.Name = "panelButtons"
         Me.panelButtons.Size = New System.Drawing.Size(44, 532)
         Me.panelButtons.TabIndex = 3
         '
         'panelHeader
         '
-        Me.panelHeader.Controls.Add(Me.Button1)
         Me.panelHeader.Dock = System.Windows.Forms.DockStyle.Top
         Me.panelHeader.Location = New System.Drawing.Point(0, 24)
-        Me.panelHeader.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.panelHeader.Margin = New System.Windows.Forms.Padding(2)
         Me.panelHeader.Name = "panelHeader"
         Me.panelHeader.Size = New System.Drawing.Size(820, 88)
         Me.panelHeader.TabIndex = 4
@@ -92,7 +89,7 @@ Partial Class Form1
         '
         Me.SplitContainer1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.SplitContainer1.Location = New System.Drawing.Point(0, 112)
-        Me.SplitContainer1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.SplitContainer1.Margin = New System.Windows.Forms.Padding(2)
         Me.SplitContainer1.Name = "SplitContainer1"
         Me.SplitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal
         '
@@ -112,7 +109,7 @@ Partial Class Form1
         '
         Me.SplitContainer2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.SplitContainer2.Location = New System.Drawing.Point(0, 0)
-        Me.SplitContainer2.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.SplitContainer2.Margin = New System.Windows.Forms.Padding(2)
         Me.SplitContainer2.Name = "SplitContainer2"
         '
         'SplitContainer2.Panel1
@@ -132,7 +129,7 @@ Partial Class Form1
         '
         Me.treeViewEmail.Dock = System.Windows.Forms.DockStyle.Fill
         Me.treeViewEmail.Location = New System.Drawing.Point(0, 0)
-        Me.treeViewEmail.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.treeViewEmail.Margin = New System.Windows.Forms.Padding(2)
         Me.treeViewEmail.Name = "treeViewEmail"
         Me.treeViewEmail.Size = New System.Drawing.Size(158, 294)
         Me.treeViewEmail.TabIndex = 0
@@ -152,7 +149,7 @@ Partial Class Form1
         Me.WebBrowser1.AllowWebBrowserDrop = False
         Me.WebBrowser1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.WebBrowser1.Location = New System.Drawing.Point(0, 0)
-        Me.WebBrowser1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.WebBrowser1.Margin = New System.Windows.Forms.Padding(2)
         Me.WebBrowser1.MinimumSize = New System.Drawing.Size(15, 16)
         Me.WebBrowser1.Name = "WebBrowser1"
         Me.WebBrowser1.Size = New System.Drawing.Size(659, 294)
@@ -166,21 +163,12 @@ Partial Class Form1
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DataGridView1.Location = New System.Drawing.Point(0, 0)
-        Me.DataGridView1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.DataGridView1.Margin = New System.Windows.Forms.Padding(2)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.ReadOnly = True
         Me.DataGridView1.RowTemplate.Height = 24
         Me.DataGridView1.Size = New System.Drawing.Size(820, 147)
         Me.DataGridView1.TabIndex = 0
-        '
-        'Button1
-        '
-        Me.Button1.Location = New System.Drawing.Point(506, 37)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 23)
-        Me.Button1.TabIndex = 0
-        Me.Button1.Text = "Button1"
-        Me.Button1.UseVisualStyleBackColor = True
         '
         'Form1
         '
@@ -192,12 +180,11 @@ Partial Class Form1
         Me.Controls.Add(Me.panelButtons)
         Me.Controls.Add(Me.MenuStrip1)
         Me.MainMenuStrip = Me.MenuStrip1
-        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "Form1"
         Me.Text = "Form1"
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
-        Me.panelHeader.ResumeLayout(False)
         Me.SplitContainer1.Panel1.ResumeLayout(False)
         Me.SplitContainer1.Panel2.ResumeLayout(False)
         Me.SplitContainer1.ResumeLayout(False)
@@ -221,5 +208,4 @@ Partial Class Form1
     Friend WithEvents WebBrowser1 As WebBrowser
     Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents urlLabel As Label
-    Friend WithEvents Button1 As Button
 End Class
