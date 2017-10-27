@@ -28,16 +28,16 @@ Partial Class Form1
         Me.panelButtons = New System.Windows.Forms.Panel()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.panelHeader = New System.Windows.Forms.Panel()
+        Me.lblFrom = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.lblSubject = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
         Me.SplitContainer2 = New System.Windows.Forms.SplitContainer()
         Me.treeViewEmail = New System.Windows.Forms.TreeView()
+        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.urlLabel = New System.Windows.Forms.Label()
         Me.WebBrowser1 = New System.Windows.Forms.WebBrowser()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.lblFrom = New System.Windows.Forms.Label()
         Me.MenuStrip1.SuspendLayout()
         Me.panelButtons.SuspendLayout()
         Me.panelHeader.SuspendLayout()
@@ -106,6 +106,26 @@ Partial Class Form1
         Me.panelHeader.Size = New System.Drawing.Size(1093, 108)
         Me.panelHeader.TabIndex = 4
         '
+        'lblFrom
+        '
+        Me.lblFrom.AutoSize = True
+        Me.lblFrom.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblFrom.Location = New System.Drawing.Point(284, 40)
+        Me.lblFrom.Name = "lblFrom"
+        Me.lblFrom.Size = New System.Drawing.Size(63, 17)
+        Me.lblFrom.TabIndex = 3
+        Me.lblFrom.Text = "Subject: "
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(229, 40)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(49, 17)
+        Me.Label2.TabIndex = 2
+        Me.Label2.Text = "From:"
+        '
         'lblSubject
         '
         Me.lblSubject.AutoSize = True
@@ -130,9 +150,7 @@ Partial Class Form1
         '
         Me.SplitContainer1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.SplitContainer1.Location = New System.Drawing.Point(0, 136)
-        Me.SplitContainer1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.SplitContainer1.Name = "SplitContainer1"
-        Me.SplitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal
         '
         'SplitContainer1.Panel1
         '
@@ -140,17 +158,18 @@ Partial Class Form1
         '
         'SplitContainer1.Panel2
         '
-        Me.SplitContainer1.Panel2.Controls.Add(Me.DataGridView1)
+        Me.SplitContainer1.Panel2.Controls.Add(Me.urlLabel)
+        Me.SplitContainer1.Panel2.Controls.Add(Me.WebBrowser1)
         Me.SplitContainer1.Size = New System.Drawing.Size(1093, 548)
-        Me.SplitContainer1.SplitterDistance = 362
+        Me.SplitContainer1.SplitterDistance = 303
         Me.SplitContainer1.TabIndex = 5
         '
         'SplitContainer2
         '
         Me.SplitContainer2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.SplitContainer2.Location = New System.Drawing.Point(0, 0)
-        Me.SplitContainer2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.SplitContainer2.Name = "SplitContainer2"
+        Me.SplitContainer2.Orientation = System.Windows.Forms.Orientation.Horizontal
         '
         'SplitContainer2.Panel1
         '
@@ -158,75 +177,49 @@ Partial Class Form1
         '
         'SplitContainer2.Panel2
         '
-        Me.SplitContainer2.Panel2.Controls.Add(Me.urlLabel)
-        Me.SplitContainer2.Panel2.Controls.Add(Me.WebBrowser1)
-        Me.SplitContainer2.Size = New System.Drawing.Size(1093, 362)
-        Me.SplitContainer2.SplitterDistance = 210
+        Me.SplitContainer2.Panel2.Controls.Add(Me.DataGridView1)
+        Me.SplitContainer2.Size = New System.Drawing.Size(303, 548)
+        Me.SplitContainer2.SplitterDistance = 156
         Me.SplitContainer2.TabIndex = 0
         '
         'treeViewEmail
         '
         Me.treeViewEmail.Dock = System.Windows.Forms.DockStyle.Fill
         Me.treeViewEmail.Location = New System.Drawing.Point(0, 0)
-        Me.treeViewEmail.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.treeViewEmail.Name = "treeViewEmail"
-        Me.treeViewEmail.Size = New System.Drawing.Size(210, 362)
+        Me.treeViewEmail.Size = New System.Drawing.Size(303, 156)
         Me.treeViewEmail.TabIndex = 0
+        '
+        'DataGridView1
+        '
+        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.DataGridView1.Location = New System.Drawing.Point(0, 0)
+        Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.RowTemplate.Height = 24
+        Me.DataGridView1.Size = New System.Drawing.Size(303, 388)
+        Me.DataGridView1.TabIndex = 0
         '
         'urlLabel
         '
         Me.urlLabel.AutoSize = True
         Me.urlLabel.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.urlLabel.Location = New System.Drawing.Point(0, 345)
+        Me.urlLabel.Location = New System.Drawing.Point(0, 531)
         Me.urlLabel.Name = "urlLabel"
-        Me.urlLabel.Size = New System.Drawing.Size(0, 17)
+        Me.urlLabel.Size = New System.Drawing.Size(51, 17)
         Me.urlLabel.TabIndex = 1
+        Me.urlLabel.Text = "Label3"
         '
         'WebBrowser1
         '
-        Me.WebBrowser1.AllowWebBrowserDrop = False
-        Me.WebBrowser1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.WebBrowser1.Location = New System.Drawing.Point(0, 0)
-        Me.WebBrowser1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.WebBrowser1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.WebBrowser1.Location = New System.Drawing.Point(2, 0)
         Me.WebBrowser1.MinimumSize = New System.Drawing.Size(20, 20)
         Me.WebBrowser1.Name = "WebBrowser1"
-        Me.WebBrowser1.Size = New System.Drawing.Size(879, 362)
+        Me.WebBrowser1.Size = New System.Drawing.Size(781, 528)
         Me.WebBrowser1.TabIndex = 0
-        '
-        'DataGridView1
-        '
-        Me.DataGridView1.AllowUserToAddRows = False
-        Me.DataGridView1.AllowUserToDeleteRows = False
-        Me.DataGridView1.AllowUserToOrderColumns = True
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.DataGridView1.Location = New System.Drawing.Point(0, 0)
-        Me.DataGridView1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.ReadOnly = True
-        Me.DataGridView1.RowTemplate.Height = 24
-        Me.DataGridView1.Size = New System.Drawing.Size(1093, 182)
-        Me.DataGridView1.TabIndex = 0
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(229, 40)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(49, 17)
-        Me.Label2.TabIndex = 2
-        Me.Label2.Text = "From:"
-        '
-        'lblFrom
-        '
-        Me.lblFrom.AutoSize = True
-        Me.lblFrom.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblFrom.Location = New System.Drawing.Point(284, 40)
-        Me.lblFrom.Name = "lblFrom"
-        Me.lblFrom.Size = New System.Drawing.Size(63, 17)
-        Me.lblFrom.TabIndex = 3
-        Me.lblFrom.Text = "Subject: "
         '
         'Form1
         '
@@ -248,10 +241,10 @@ Partial Class Form1
         Me.panelHeader.PerformLayout()
         Me.SplitContainer1.Panel1.ResumeLayout(False)
         Me.SplitContainer1.Panel2.ResumeLayout(False)
+        Me.SplitContainer1.Panel2.PerformLayout()
         Me.SplitContainer1.ResumeLayout(False)
         Me.SplitContainer2.Panel1.ResumeLayout(False)
         Me.SplitContainer2.Panel2.ResumeLayout(False)
-        Me.SplitContainer2.Panel2.PerformLayout()
         Me.SplitContainer2.ResumeLayout(False)
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
@@ -263,15 +256,15 @@ Partial Class Form1
     Friend WithEvents MenuStrip1 As MenuStrip
     Friend WithEvents panelButtons As Panel
     Friend WithEvents panelHeader As Panel
-    Friend WithEvents SplitContainer1 As SplitContainer
-    Friend WithEvents SplitContainer2 As SplitContainer
-    Friend WithEvents treeViewEmail As TreeView
-    Friend WithEvents WebBrowser1 As WebBrowser
-    Friend WithEvents DataGridView1 As DataGridView
-    Friend WithEvents urlLabel As Label
     Friend WithEvents Button1 As Button
     Friend WithEvents lblSubject As Label
     Friend WithEvents Label1 As Label
     Friend WithEvents lblFrom As Label
     Friend WithEvents Label2 As Label
+    Friend WithEvents SplitContainer1 As SplitContainer
+    Friend WithEvents SplitContainer2 As SplitContainer
+    Friend WithEvents treeViewEmail As TreeView
+    Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents WebBrowser1 As WebBrowser
+    Friend WithEvents urlLabel As Label
 End Class
