@@ -60,7 +60,7 @@
             'Dim message = LoadEmlFromFile(DataGridView1.Rows(e.RowIndex).Cells(0).Value)
             Try
                 Dim message = MimeKit.MimeMessage.Load(DataGridView1.Rows(e.RowIndex).Cells(0).Value)
-
+                'Test sync
                 'Debug.WriteLine(message.HtmlBody)
                 Dim htmlPart = message.HtmlBody
 
