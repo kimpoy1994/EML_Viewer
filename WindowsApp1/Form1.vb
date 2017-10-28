@@ -65,6 +65,7 @@
                 'Test sync
                 'Debug.WriteLine(message.HtmlBody)
                 LoadEmail(message)
+                'WebBrowser1.AllowNavigation = False
             Catch ex As IO.DirectoryNotFoundException
                 MessageBox.Show("File not found!")
                 Me.Controls.Clear()
@@ -85,6 +86,7 @@
 
                 'Debug.WriteLine(message.HtmlBody)
                 LoadEmail(message)
+                'WebBrowser1.AllowNavigation = False
             Catch ex As IO.DirectoryNotFoundException
                 MessageBox.Show("File not found!")
                 Me.Controls.Clear()
@@ -99,6 +101,7 @@
                 Debug.WriteLine(DataGridView1.CurrentRow.Index - 1)
                 'Debug.WriteLine(message.HtmlBody)
                 LoadEmail(message)
+                'WebBrowser1.AllowNavigation = False
 
             Catch ex As IO.DirectoryNotFoundException
                 MessageBox.Show("File not found!")
@@ -113,6 +116,7 @@
 
     Private Sub WebBrowser1_DocumentCompleted(sender As Object, e As WebBrowserDocumentCompletedEventArgs) Handles WebBrowser1.DocumentCompleted
         AddHandler WebBrowser1.Document.MouseOver, AddressOf Me.DisplayHyperlinks
+        WebBrowser1.AllowNavigation = False
     End Sub
 
     Private Sub DisplayHyperlinks(sender As Object, e As HtmlElementEventArgs)
@@ -120,6 +124,7 @@
     End Sub
 
     Private Sub LoadEmail(email)
+        WebBrowser1.AllowNavigation = True
         Dim htmlPart = email.HtmlBody
         txtSubject.Text = email.Subject
         txtFrom.Text = email.From.ToString
@@ -129,5 +134,6 @@
         End If
 
         WebBrowser1.DocumentText = htmlPart
+
     End Sub
 End Class
