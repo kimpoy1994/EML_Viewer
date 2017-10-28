@@ -1,4 +1,5 @@
-﻿Public Class Form1
+﻿Imports System.Text.RegularExpressions
+Public Class Form1
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         txtSubject.BackColor = Me.BackColor
@@ -53,7 +54,12 @@
 
     Private Sub treeViewEmail_NodeMouseDoubleClick(sender As Object, e As TreeNodeMouseClickEventArgs) Handles treeViewEmail.NodeMouseDoubleClick
         DataGridView1.DataSource = Fileinfo_To_DataTable(e.Node.FullPath)
-        DataGridView1.Columns(0).Visible = False
+        Try
+            DataGridView1.Columns(0).Visible = False
+        Catch ex As Exception
+            'TODO
+        End Try
+
     End Sub
 
     Private Sub DataGridView1_CellMouseClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles DataGridView1.CellMouseClick
@@ -120,7 +126,14 @@
     End Sub
 
     Private Sub DisplayHyperlinks(sender As Object, e As HtmlElementEventArgs)
-        urlLabel.Text = e.ToElement.GetAttribute("href")
+
+        If e.ToElement.GetAttribute("href").Length = 0 Then
+            urlLabel.Text = e.ToElement.Parent.GetAttribute("href")
+        Else
+            urlLabel.Text = e.ToElement.GetAttribute("href")
+        End If
+
+
     End Sub
 
     Private Sub LoadEmail(email)

@@ -28,6 +28,8 @@ Partial Class Form1
         Me.panelButtons = New System.Windows.Forms.Panel()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.panelHeader = New System.Windows.Forms.Panel()
+        Me.txtFrom = New System.Windows.Forms.TextBox()
+        Me.txtSubject = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
@@ -36,8 +38,6 @@ Partial Class Form1
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.urlLabel = New System.Windows.Forms.Label()
         Me.WebBrowser1 = New System.Windows.Forms.WebBrowser()
-        Me.txtSubject = New System.Windows.Forms.TextBox()
-        Me.txtFrom = New System.Windows.Forms.TextBox()
         Me.MenuStrip1.SuspendLayout()
         Me.panelButtons.SuspendLayout()
         Me.panelHeader.SuspendLayout()
@@ -105,6 +105,28 @@ Partial Class Form1
         Me.panelHeader.Name = "panelHeader"
         Me.panelHeader.Size = New System.Drawing.Size(1093, 108)
         Me.panelHeader.TabIndex = 4
+        '
+        'txtFrom
+        '
+        Me.txtFrom.BackColor = System.Drawing.SystemColors.Window
+        Me.txtFrom.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.txtFrom.Location = New System.Drawing.Point(287, 40)
+        Me.txtFrom.Name = "txtFrom"
+        Me.txtFrom.ReadOnly = True
+        Me.txtFrom.Size = New System.Drawing.Size(803, 15)
+        Me.txtFrom.TabIndex = 5
+        Me.txtFrom.TabStop = False
+        '
+        'txtSubject
+        '
+        Me.txtSubject.BackColor = System.Drawing.SystemColors.Window
+        Me.txtSubject.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.txtSubject.Location = New System.Drawing.Point(287, 12)
+        Me.txtSubject.Name = "txtSubject"
+        Me.txtSubject.ReadOnly = True
+        Me.txtSubject.Size = New System.Drawing.Size(800, 15)
+        Me.txtSubject.TabIndex = 4
+        Me.txtSubject.TabStop = False
         '
         'Label2
         '
@@ -209,28 +231,6 @@ Partial Class Form1
         Me.WebBrowser1.ScriptErrorsSuppressed = True
         Me.WebBrowser1.Size = New System.Drawing.Size(781, 528)
         Me.WebBrowser1.TabIndex = 0
-        '
-        'txtSubject
-        '
-        Me.txtSubject.BackColor = System.Drawing.SystemColors.Window
-        Me.txtSubject.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.txtSubject.Location = New System.Drawing.Point(287, 12)
-        Me.txtSubject.Name = "txtSubject"
-        Me.txtSubject.ReadOnly = True
-        Me.txtSubject.Size = New System.Drawing.Size(800, 15)
-        Me.txtSubject.TabIndex = 4
-        Me.txtSubject.TabStop = False
-        '
-        'txtFrom
-        '
-        Me.txtFrom.BackColor = System.Drawing.SystemColors.Window
-        Me.txtFrom.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.txtFrom.Location = New System.Drawing.Point(287, 40)
-        Me.txtFrom.Name = "txtFrom"
-        Me.txtFrom.ReadOnly = True
-        Me.txtFrom.Size = New System.Drawing.Size(803, 15)
-        Me.txtFrom.TabIndex = 5
-        Me.txtFrom.TabStop = False
         '
         'Form1
         '
