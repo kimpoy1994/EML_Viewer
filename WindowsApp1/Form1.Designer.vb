@@ -191,11 +191,11 @@ Partial Class Form1
         '
         Me.urlLabel.AutoSize = True
         Me.urlLabel.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.urlLabel.Location = New System.Drawing.Point(0, 531)
+        Me.urlLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.urlLabel.Location = New System.Drawing.Point(0, 530)
         Me.urlLabel.Name = "urlLabel"
-        Me.urlLabel.Size = New System.Drawing.Size(51, 17)
+        Me.urlLabel.Size = New System.Drawing.Size(0, 18)
         Me.urlLabel.TabIndex = 1
-        Me.urlLabel.Text = "Label3"
         '
         'WebBrowser1
         '
@@ -206,6 +206,7 @@ Partial Class Form1
         Me.WebBrowser1.Location = New System.Drawing.Point(2, 0)
         Me.WebBrowser1.MinimumSize = New System.Drawing.Size(20, 20)
         Me.WebBrowser1.Name = "WebBrowser1"
+        Me.WebBrowser1.ScriptErrorsSuppressed = True
         Me.WebBrowser1.Size = New System.Drawing.Size(781, 528)
         Me.WebBrowser1.TabIndex = 0
         '
