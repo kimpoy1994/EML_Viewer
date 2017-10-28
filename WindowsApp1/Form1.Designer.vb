@@ -28,9 +28,7 @@ Partial Class Form1
         Me.panelButtons = New System.Windows.Forms.Panel()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.panelHeader = New System.Windows.Forms.Panel()
-        Me.lblFrom = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.lblSubject = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
         Me.SplitContainer2 = New System.Windows.Forms.SplitContainer()
@@ -38,6 +36,8 @@ Partial Class Form1
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.urlLabel = New System.Windows.Forms.Label()
         Me.WebBrowser1 = New System.Windows.Forms.WebBrowser()
+        Me.txtSubject = New System.Windows.Forms.TextBox()
+        Me.txtFrom = New System.Windows.Forms.TextBox()
         Me.MenuStrip1.SuspendLayout()
         Me.panelButtons.SuspendLayout()
         Me.panelHeader.SuspendLayout()
@@ -95,9 +95,9 @@ Partial Class Form1
         '
         'panelHeader
         '
-        Me.panelHeader.Controls.Add(Me.lblFrom)
+        Me.panelHeader.Controls.Add(Me.txtFrom)
+        Me.panelHeader.Controls.Add(Me.txtSubject)
         Me.panelHeader.Controls.Add(Me.Label2)
-        Me.panelHeader.Controls.Add(Me.lblSubject)
         Me.panelHeader.Controls.Add(Me.Label1)
         Me.panelHeader.Dock = System.Windows.Forms.DockStyle.Top
         Me.panelHeader.Location = New System.Drawing.Point(0, 28)
@@ -105,16 +105,6 @@ Partial Class Form1
         Me.panelHeader.Name = "panelHeader"
         Me.panelHeader.Size = New System.Drawing.Size(1093, 108)
         Me.panelHeader.TabIndex = 4
-        '
-        'lblFrom
-        '
-        Me.lblFrom.AutoSize = True
-        Me.lblFrom.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblFrom.Location = New System.Drawing.Point(284, 40)
-        Me.lblFrom.Name = "lblFrom"
-        Me.lblFrom.Size = New System.Drawing.Size(63, 17)
-        Me.lblFrom.TabIndex = 3
-        Me.lblFrom.Text = "Subject: "
         '
         'Label2
         '
@@ -125,16 +115,6 @@ Partial Class Form1
         Me.Label2.Size = New System.Drawing.Size(49, 17)
         Me.Label2.TabIndex = 2
         Me.Label2.Text = "From:"
-        '
-        'lblSubject
-        '
-        Me.lblSubject.AutoSize = True
-        Me.lblSubject.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblSubject.Location = New System.Drawing.Point(284, 12)
-        Me.lblSubject.Name = "lblSubject"
-        Me.lblSubject.Size = New System.Drawing.Size(63, 17)
-        Me.lblSubject.TabIndex = 1
-        Me.lblSubject.Text = "Subject: "
         '
         'Label1
         '
@@ -192,11 +172,18 @@ Partial Class Form1
         '
         'DataGridView1
         '
+        Me.DataGridView1.AllowUserToAddRows = False
+        Me.DataGridView1.AllowUserToOrderColumns = True
+        Me.DataGridView1.BackgroundColor = System.Drawing.SystemColors.Window
+        Me.DataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.DataGridView1.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically
         Me.DataGridView1.Location = New System.Drawing.Point(0, 0)
         Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.ReadOnly = True
         Me.DataGridView1.RowTemplate.Height = 24
+        Me.DataGridView1.ShowEditingIcon = False
         Me.DataGridView1.Size = New System.Drawing.Size(303, 388)
         Me.DataGridView1.TabIndex = 0
         '
@@ -220,6 +207,28 @@ Partial Class Form1
         Me.WebBrowser1.Name = "WebBrowser1"
         Me.WebBrowser1.Size = New System.Drawing.Size(781, 528)
         Me.WebBrowser1.TabIndex = 0
+        '
+        'txtSubject
+        '
+        Me.txtSubject.BackColor = System.Drawing.SystemColors.Window
+        Me.txtSubject.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.txtSubject.Location = New System.Drawing.Point(287, 12)
+        Me.txtSubject.Name = "txtSubject"
+        Me.txtSubject.ReadOnly = True
+        Me.txtSubject.Size = New System.Drawing.Size(800, 15)
+        Me.txtSubject.TabIndex = 4
+        Me.txtSubject.TabStop = False
+        '
+        'txtFrom
+        '
+        Me.txtFrom.BackColor = System.Drawing.SystemColors.Window
+        Me.txtFrom.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.txtFrom.Location = New System.Drawing.Point(287, 40)
+        Me.txtFrom.Name = "txtFrom"
+        Me.txtFrom.ReadOnly = True
+        Me.txtFrom.Size = New System.Drawing.Size(803, 15)
+        Me.txtFrom.TabIndex = 5
+        Me.txtFrom.TabStop = False
         '
         'Form1
         '
@@ -257,9 +266,7 @@ Partial Class Form1
     Friend WithEvents panelButtons As Panel
     Friend WithEvents panelHeader As Panel
     Friend WithEvents Button1 As Button
-    Friend WithEvents lblSubject As Label
     Friend WithEvents Label1 As Label
-    Friend WithEvents lblFrom As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents SplitContainer1 As SplitContainer
     Friend WithEvents SplitContainer2 As SplitContainer
@@ -267,4 +274,6 @@ Partial Class Form1
     Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents WebBrowser1 As WebBrowser
     Friend WithEvents urlLabel As Label
+    Friend WithEvents txtSubject As TextBox
+    Friend WithEvents txtFrom As TextBox
 End Class

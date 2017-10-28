@@ -1,6 +1,8 @@
 ﻿Public Class Form1
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        txtSubject.BackColor = Me.BackColor
+        txtFrom.BackColor = Me.BackColor
         For Each drive As IO.DriveInfo In IO.DriveInfo.GetDrives()
             Dim mRootNode As New TreeNode
             mRootNode.Tag = drive
@@ -119,8 +121,8 @@
 
     Private Sub LoadEmail(email)
         Dim htmlPart = email.HtmlBody
-        lblSubject.Text = email.Subject
-        lblFrom.Text = email.From.ToString
+        txtSubject.Text = email.Subject
+        txtFrom.Text = email.From.ToString
 
         If htmlPart = Nothing Then
             htmlPart = "<pre> " + email.TextBody + "</pre>"
