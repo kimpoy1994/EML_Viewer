@@ -1,6 +1,6 @@
 ﻿Imports System.Text.RegularExpressions
 Public Class Form1
-
+    Dim dgv_datasource
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'Changing the colors of the label so that it is not visible on run
         txtSubject.BackColor = Me.BackColor
@@ -56,13 +56,7 @@ Public Class Form1
 
     Private Sub treeViewEmail_NodeMouseDoubleClick(sender As Object, e As TreeNodeMouseClickEventArgs) Handles treeViewEmail.NodeMouseDoubleClick
         'Get the directory of the double clicked node to fill up thee datagrid
-        DataGridView1.DataSource = Fileinfo_To_DataTable(e.Node.FullPath)
-        Try
-            'Remove the first column, the full directory
-            DataGridView1.Columns(0).Visible = False
-        Catch ex As Exception
-            'TODO
-        End Try
+        BackgroundWorker1.RunWorkerAsync(e.Node.FullPath)
 
     End Sub
 
@@ -156,5 +150,74 @@ Public Class Form1
 
         WebBrowser1.DocumentText = htmlPart
 
+    End Sub
+
+    Private Sub BackgroundWorker1_DoWork(sender As Object, e As System.ComponentModel.DoWorkEventArgs) Handles BackgroundWorker1.DoWork
+        Try
+            'Create a new data table
+            Dim dt As DataTable = New DataTable
+
+            'Add the following columns:
+            '                          Name
+            '                          Subject
+            '                          From
+            ''                         Size
+            dt.Columns.AddRange({New DataColumn("Dir"), New DataColumn("Name"), New DataColumn("Subject"), New DataColumn("From"), New DataColumn("Size (KB)")})
+
+            'Loop through each file in the directory
+            Dim counter = New IO.DirectoryInfo(e.Argument).GetFiles.Count
+            Dim i As Integer = 0
+            For Each file As IO.FileInfo In New IO.DirectoryInfo(e.Argument).GetFiles
+                'Create a new row
+                If file.Extension = ".eml" Then
+
+                    Dim dr As DataRow = dt.NewRow
+
+                    Dim message = MimeKit.MimeMessage.Load(file.FullName)
+
+                    'Set the data
+                    'Full directory, Filename, Subject, From, File size
+                    dr(0) = file.FullName
+                    dr(1) = file.Name
+                    dr(2) = message.Subject
+                    dr(3) = message.From
+                    dr(4) = file.Length / 1000
+
+
+                    'Add the row to the data table
+                    dt.Rows.Add(dr)
+                End If
+                i += 1
+                Dim state = New Integer() {i, counter}
+                BackgroundWorker1.ReportProgress((i / counter) * 100, state)
+
+            Next
+
+            'Return the data table
+            dgv_datasource = dt
+        Catch ex As Exception
+            Console.WriteLine(ex.ToString)
+
+            'Return nothing if something fails
+        End Try
+    End Sub
+
+    Private Sub BackgroundWorker1_Workcompleted(sender As Object, e As System.ComponentModel.RunWorkerCompletedEventArgs) Handles BackgroundWorker1.RunWorkerCompleted
+        UpdateDataGridView(dgv_datasource)
+    End Sub
+
+    Private Sub BackgroundWorker1_ProgressChanged(sender As Object, e As System.ComponentModel.ProgressChangedEventArgs) Handles BackgroundWorker1.ProgressChanged
+        ProgressBar1.Value = e.ProgressPercentage
+        lblStatus.Text = e.UserState(0).ToString + " out of " + e.UserState(1).ToString
+    End Sub
+
+    Private Sub UpdateDataGridView(datasource)
+        DataGridView1.DataSource = datasource
+        Try
+            'Remove the first column, the full directory
+            DataGridView1.Columns(0).Visible = False
+        Catch ex As Exception
+            'TODO
+        End Try
     End Sub
 End Class
