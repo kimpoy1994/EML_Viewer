@@ -2,8 +2,10 @@
 Public Class Form1
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'Changing the colors of the label so that it is not visible on run
         txtSubject.BackColor = Me.BackColor
         txtFrom.BackColor = Me.BackColor
+        'Get all the drive for the tree view
         For Each drive As IO.DriveInfo In IO.DriveInfo.GetDrives()
             Dim mRootNode As New TreeNode
             mRootNode.Tag = drive
@@ -53,8 +55,10 @@ Public Class Form1
     End Sub
 
     Private Sub treeViewEmail_NodeMouseDoubleClick(sender As Object, e As TreeNodeMouseClickEventArgs) Handles treeViewEmail.NodeMouseDoubleClick
+        'Get the directory of the double clicked node to fill up thee datagrid
         DataGridView1.DataSource = Fileinfo_To_DataTable(e.Node.FullPath)
         Try
+            'Remove the first column, the full directory
             DataGridView1.Columns(0).Visible = False
         Catch ex As Exception
             'TODO
@@ -64,14 +68,12 @@ Public Class Form1
 
     Private Sub DataGridView1_CellMouseClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles DataGridView1.CellMouseClick
         If e.RowIndex >= 0 AndAlso e.ColumnIndex >= 0 Then
-            ' Dim selectedRow = DataGridView1.Rows(e.RowIndex)
-            'Dim message = LoadEmlFromFile(DataGridView1.Rows(e.RowIndex).Cells(0).Value)
             Try
+                ' Load the email file using the selected row
                 Dim message = MimeKit.MimeMessage.Load(DataGridView1.Rows(e.RowIndex).Cells(0).Value)
-                'Test sync
-                'Debug.WriteLine(message.HtmlBody)
                 LoadEmail(message)
-                'WebBrowser1.AllowNavigation = False
+
+                'If directory is not found
             Catch ex As IO.DirectoryNotFoundException
                 MessageBox.Show("File not found!")
                 Me.Controls.Clear()
@@ -85,14 +87,11 @@ Public Class Form1
     Private Sub DataGridView1_KeyDown(sender As Object, e As KeyEventArgs) Handles DataGridView1.KeyDown
         If e.KeyCode = Keys.Up Then
             Try
-                'Dim selectedRow = DataGridView1.Rows(DataGridView1.CurrentRow.Index + 1)
-                'Dim message = LoadEmlFromFile(DataGridView1.Rows(e.RowIndex).Cells(0).Value)
+                'Load the email file using the selected row
                 Dim message = MimeKit.MimeMessage.Load(DataGridView1.Rows(DataGridView1.CurrentRow.Index - 1).Cells(0).Value)
-                Debug.WriteLine(DataGridView1.CurrentRow.Index + 1)
-
-                'Debug.WriteLine(message.HtmlBody)
                 LoadEmail(message)
-                'WebBrowser1.AllowNavigation = False
+
+                'If the directory is not found
             Catch ex As IO.DirectoryNotFoundException
                 MessageBox.Show("File not found!")
                 Me.Controls.Clear()
@@ -103,12 +102,11 @@ Public Class Form1
             End Try
         ElseIf e.KeyCode = Keys.Down Then
             Try
+                'Load the email file using the selected row
                 Dim message = MimeKit.MimeMessage.Load(DataGridView1.Rows(DataGridView1.CurrentRow.Index + 1).Cells(0).Value)
-                Debug.WriteLine(DataGridView1.CurrentRow.Index - 1)
-                'Debug.WriteLine(message.HtmlBody)
                 LoadEmail(message)
-                'WebBrowser1.AllowNavigation = False
 
+                'If the directory is not found
             Catch ex As IO.DirectoryNotFoundException
                 MessageBox.Show("File not found!")
                 Me.Controls.Clear()
@@ -121,22 +119,32 @@ Public Class Form1
     End Sub
 
     Private Sub WebBrowser1_DocumentCompleted(sender As Object, e As WebBrowserDocumentCompletedEventArgs) Handles WebBrowser1.DocumentCompleted
+        'Event handling to display hyperlink
         AddHandler WebBrowser1.Document.MouseOver, AddressOf Me.DisplayHyperlinks
+
+        'So that the user will not be able to click URL from the email displayed
         WebBrowser1.AllowNavigation = False
     End Sub
 
     Private Sub DisplayHyperlinks(sender As Object, e As HtmlElementEventArgs)
-
+        ' Shows the URL in the label below of the webbrowser control
         If e.ToElement.GetAttribute("href").Length = 0 Then
+            ' Use this if the URL is not being displayed
+            ' Example, the <a href=#><span>CLICK HERE</span></a>
             urlLabel.Text = e.ToElement.Parent.GetAttribute("href")
         Else
+            'Example <a href=#>CLICK HERE</a>
             urlLabel.Text = e.ToElement.GetAttribute("href")
         End If
 
-
     End Sub
 
+    ''' <summary>
+    ''' Subroutine use in loading an email to the Web browser control
+    ''' </summary>
+    ''' <param name="email"></param>
     Private Sub LoadEmail(email)
+        'Function for displaying the email in the web browser control
         WebBrowser1.AllowNavigation = True
         Dim htmlPart = email.HtmlBody
         txtSubject.Text = email.Subject
