@@ -5,6 +5,7 @@ Public Class Form1
         'Changing the colors of the label so that it is not visible on run
         txtSubject.BackColor = Me.BackColor
         txtFrom.BackColor = Me.BackColor
+        lblStatus.Text = ""
         'Get all the drive for the tree view
         For Each drive As IO.DriveInfo In IO.DriveInfo.GetDrives()
             Dim mRootNode As New TreeNode
