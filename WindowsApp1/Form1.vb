@@ -220,4 +220,13 @@ Public Class Form1
             'TODO
         End Try
     End Sub
+
+    Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
+
+    End Sub
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        Dim itemPath As Array
+
+    End Sub
 End Class
