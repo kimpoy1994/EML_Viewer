@@ -230,4 +230,27 @@ Public Class Form1
         Dim itemPath As Array
     End Sub
 
+    Private Sub GroupBox1_Enter(sender As Object, e As EventArgs)
+
+    End Sub
+
+    Private Sub Label3_Click(sender As Object, e As EventArgs) Handles Label3.Click
+
+    End Sub
+
+    Private Sub Button26_Click(sender As Object, e As EventArgs)
+
+    End Sub
+
+    Private Sub Button24_Click(sender As Object, e As EventArgs)
+
+    End Sub
+
+    Private Sub Button25_Click(sender As Object, e As EventArgs)
+
+    End Sub
+
+    Private Sub Button23_Click(sender As Object, e As EventArgs)
+
+    End Sub
 End Class
