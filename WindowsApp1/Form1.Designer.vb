@@ -22,9 +22,15 @@ Partial Class Form1
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
         Me.FileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
+        Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ViewToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SearchToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SettingsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.HelpToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.Button18 = New System.Windows.Forms.Button()
         Me.Button17 = New System.Windows.Forms.Button()
         Me.Button16 = New System.Windows.Forms.Button()
@@ -46,74 +52,82 @@ Partial Class Form1
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.SplitContainer3 = New System.Windows.Forms.SplitContainer()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.panelHeader = New System.Windows.Forms.Panel()
+        Me.TabControl1 = New System.Windows.Forms.TabControl()
+        Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.txtSubject = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtFrom = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.TabPage6 = New System.Windows.Forms.TabPage()
+        Me.TabPage5 = New System.Windows.Forms.TabPage()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
-        Me.Panel7 = New System.Windows.Forms.Panel()
-        Me.urlLabel = New System.Windows.Forms.Label()
-        Me.SplitContainer2 = New System.Windows.Forms.SplitContainer()
-        Me.treeViewEmail = New System.Windows.Forms.TreeView()
-        Me.Panel5 = New System.Windows.Forms.Panel()
-        Me.Panel8 = New System.Windows.Forms.Panel()
-        Me.lblStatus = New System.Windows.Forms.Label()
-        Me.ProgressBar1 = New System.Windows.Forms.ProgressBar()
-        Me.Panel6 = New System.Windows.Forms.Panel()
-        Me.Splitter1 = New System.Windows.Forms.Splitter()
-        Me.TabControl1 = New System.Windows.Forms.TabControl()
-        Me.TabPage1 = New System.Windows.Forms.TabPage()
-        Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.Button24 = New System.Windows.Forms.Button()
+        Me.Button25 = New System.Windows.Forms.Button()
         Me.TabControl2 = New System.Windows.Forms.TabControl()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
-        Me.TabPage4 = New System.Windows.Forms.TabPage()
         Me.WebBrowser1 = New System.Windows.Forms.WebBrowser()
         Me.Panel9 = New System.Windows.Forms.Panel()
-        Me.TabPage5 = New System.Windows.Forms.TabPage()
-        Me.TabPage6 = New System.Windows.Forms.TabPage()
         Me.Label3 = New System.Windows.Forms.Label()
+        Me.TabPage4 = New System.Windows.Forms.TabPage()
         Me.Panel4 = New System.Windows.Forms.Panel()
-        Me.Button19 = New System.Windows.Forms.Button()
-        Me.Button20 = New System.Windows.Forms.Button()
-        Me.Button21 = New System.Windows.Forms.Button()
-        Me.Button22 = New System.Windows.Forms.Button()
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.Button27 = New System.Windows.Forms.Button()
-        Me.Button28 = New System.Windows.Forms.Button()
-        Me.Button29 = New System.Windows.Forms.Button()
-        Me.Button30 = New System.Windows.Forms.Button()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.Button31 = New System.Windows.Forms.Button()
         Me.Button32 = New System.Windows.Forms.Button()
         Me.Button33 = New System.Windows.Forms.Button()
         Me.Button34 = New System.Windows.Forms.Button()
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.Button27 = New System.Windows.Forms.Button()
+        Me.Button28 = New System.Windows.Forms.Button()
+        Me.Button29 = New System.Windows.Forms.Button()
+        Me.Button30 = New System.Windows.Forms.Button()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Button20 = New System.Windows.Forms.Button()
+        Me.Button22 = New System.Windows.Forms.Button()
+        Me.Button19 = New System.Windows.Forms.Button()
+        Me.Button21 = New System.Windows.Forms.Button()
+        Me.Panel7 = New System.Windows.Forms.Panel()
+        Me.urlLabel = New System.Windows.Forms.Label()
+        Me.SplitContainer2 = New System.Windows.Forms.SplitContainer()
+        Me.treeViewEmail = New System.Windows.Forms.TreeView()
+        Me.Panel5 = New System.Windows.Forms.Panel()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.Button23 = New System.Windows.Forms.Button()
+        Me.Panel8 = New System.Windows.Forms.Panel()
+        Me.lblStatus = New System.Windows.Forms.Label()
+        Me.ProgressBar1 = New System.Windows.Forms.ProgressBar()
+        Me.Panel6 = New System.Windows.Forms.Panel()
+        Me.Splitter1 = New System.Windows.Forms.Splitter()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel1.SuspendLayout()
+        Me.SplitContainer3.SuspendLayout()
         Me.panelHeader.SuspendLayout()
+        Me.TabControl1.SuspendLayout()
+        Me.TabPage1.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.Panel3.SuspendLayout()
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
         Me.SplitContainer1.SuspendLayout()
-        Me.Panel7.SuspendLayout()
-        Me.SplitContainer2.Panel1.SuspendLayout()
-        Me.SplitContainer2.Panel2.SuspendLayout()
-        Me.SplitContainer2.SuspendLayout()
-        Me.Panel8.SuspendLayout()
-        Me.TabControl1.SuspendLayout()
-        Me.TabPage1.SuspendLayout()
         Me.TabControl2.SuspendLayout()
         Me.TabPage3.SuspendLayout()
         Me.Panel9.SuspendLayout()
         Me.Panel4.SuspendLayout()
-        Me.GroupBox1.SuspendLayout()
-        Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
+        Me.GroupBox2.SuspendLayout()
+        Me.GroupBox1.SuspendLayout()
+        Me.Panel7.SuspendLayout()
+        Me.SplitContainer2.Panel1.SuspendLayout()
+        Me.SplitContainer2.Panel2.SuspendLayout()
+        Me.SplitContainer2.SuspendLayout()
+        Me.Panel5.SuspendLayout()
+        Me.Panel8.SuspendLayout()
         Me.SuspendLayout()
         '
         'FileToolStripMenuItem
@@ -134,7 +148,7 @@ Partial Class Form1
         '
         Me.MenuStrip1.BackColor = System.Drawing.SystemColors.Control
         Me.MenuStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem, Me.HelpToolStripMenuItem, Me.ViewToolStripMenuItem, Me.SearchToolStripMenuItem, Me.SettingsToolStripMenuItem, Me.HelpToolStripMenuItem1})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Padding = New System.Windows.Forms.Padding(4, 2, 0, 2)
@@ -142,8 +156,40 @@ Partial Class Form1
         Me.MenuStrip1.TabIndex = 2
         Me.MenuStrip1.Text = "MenuStrip1"
         '
+        'HelpToolStripMenuItem
+        '
+        Me.HelpToolStripMenuItem.Name = "HelpToolStripMenuItem"
+        Me.HelpToolStripMenuItem.Size = New System.Drawing.Size(39, 20)
+        Me.HelpToolStripMenuItem.Text = "Edit"
+        '
+        'ViewToolStripMenuItem
+        '
+        Me.ViewToolStripMenuItem.Name = "ViewToolStripMenuItem"
+        Me.ViewToolStripMenuItem.Size = New System.Drawing.Size(44, 20)
+        Me.ViewToolStripMenuItem.Text = "View"
+        '
+        'SearchToolStripMenuItem
+        '
+        Me.SearchToolStripMenuItem.Name = "SearchToolStripMenuItem"
+        Me.SearchToolStripMenuItem.Size = New System.Drawing.Size(54, 20)
+        Me.SearchToolStripMenuItem.Text = "Search"
+        '
+        'SettingsToolStripMenuItem
+        '
+        Me.SettingsToolStripMenuItem.Name = "SettingsToolStripMenuItem"
+        Me.SettingsToolStripMenuItem.Size = New System.Drawing.Size(61, 20)
+        Me.SettingsToolStripMenuItem.Text = "Settings"
+        '
+        'HelpToolStripMenuItem1
+        '
+        Me.HelpToolStripMenuItem1.Name = "HelpToolStripMenuItem1"
+        Me.HelpToolStripMenuItem1.Size = New System.Drawing.Size(44, 20)
+        Me.HelpToolStripMenuItem1.Text = "Help"
+        '
         'Button18
         '
+        Me.Button18.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Button18.BackColor = System.Drawing.SystemColors.Window
         Me.Button18.FlatAppearance.BorderColor = System.Drawing.Color.Silver
         Me.Button18.FlatStyle = System.Windows.Forms.FlatStyle.Flat
@@ -159,6 +205,8 @@ Partial Class Form1
         '
         'Button17
         '
+        Me.Button17.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Button17.BackColor = System.Drawing.SystemColors.Window
         Me.Button17.FlatAppearance.BorderColor = System.Drawing.Color.Silver
         Me.Button17.FlatStyle = System.Windows.Forms.FlatStyle.Flat
@@ -174,6 +222,8 @@ Partial Class Form1
         '
         'Button16
         '
+        Me.Button16.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Button16.BackColor = System.Drawing.SystemColors.Window
         Me.Button16.FlatAppearance.BorderColor = System.Drawing.Color.Silver
         Me.Button16.FlatStyle = System.Windows.Forms.FlatStyle.Flat
@@ -189,6 +239,8 @@ Partial Class Form1
         '
         'Button15
         '
+        Me.Button15.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Button15.BackColor = System.Drawing.SystemColors.Window
         Me.Button15.FlatAppearance.BorderColor = System.Drawing.Color.Silver
         Me.Button15.FlatStyle = System.Windows.Forms.FlatStyle.Flat
@@ -204,6 +256,8 @@ Partial Class Form1
         '
         'Button14
         '
+        Me.Button14.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Button14.BackColor = System.Drawing.SystemColors.Window
         Me.Button14.FlatAppearance.BorderColor = System.Drawing.Color.Silver
         Me.Button14.FlatStyle = System.Windows.Forms.FlatStyle.Flat
@@ -219,6 +273,8 @@ Partial Class Form1
         '
         'Button13
         '
+        Me.Button13.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Button13.BackColor = System.Drawing.SystemColors.Window
         Me.Button13.FlatAppearance.BorderColor = System.Drawing.Color.Silver
         Me.Button13.FlatStyle = System.Windows.Forms.FlatStyle.Flat
@@ -234,6 +290,8 @@ Partial Class Form1
         '
         'Button12
         '
+        Me.Button12.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Button12.BackColor = System.Drawing.SystemColors.Window
         Me.Button12.FlatAppearance.BorderColor = System.Drawing.Color.Silver
         Me.Button12.FlatStyle = System.Windows.Forms.FlatStyle.Flat
@@ -249,6 +307,8 @@ Partial Class Form1
         '
         'Button11
         '
+        Me.Button11.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Button11.BackColor = System.Drawing.SystemColors.Window
         Me.Button11.FlatAppearance.BorderColor = System.Drawing.Color.Silver
         Me.Button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat
@@ -264,6 +324,8 @@ Partial Class Form1
         '
         'Button10
         '
+        Me.Button10.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Button10.BackColor = System.Drawing.SystemColors.Window
         Me.Button10.FlatAppearance.BorderColor = System.Drawing.Color.Silver
         Me.Button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat
@@ -279,6 +341,8 @@ Partial Class Form1
         '
         'Button9
         '
+        Me.Button9.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Button9.BackColor = System.Drawing.SystemColors.Window
         Me.Button9.FlatAppearance.BorderColor = System.Drawing.Color.Silver
         Me.Button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat
@@ -294,6 +358,8 @@ Partial Class Form1
         '
         'Button8
         '
+        Me.Button8.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Button8.BackColor = System.Drawing.SystemColors.Window
         Me.Button8.FlatAppearance.BorderColor = System.Drawing.Color.Silver
         Me.Button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat
@@ -309,6 +375,8 @@ Partial Class Form1
         '
         'Button7
         '
+        Me.Button7.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Button7.BackColor = System.Drawing.SystemColors.Window
         Me.Button7.FlatAppearance.BorderColor = System.Drawing.Color.Silver
         Me.Button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat
@@ -324,6 +392,8 @@ Partial Class Form1
         '
         'Button6
         '
+        Me.Button6.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Button6.BackColor = System.Drawing.SystemColors.Window
         Me.Button6.FlatAppearance.BorderColor = System.Drawing.Color.Silver
         Me.Button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat
@@ -339,6 +409,8 @@ Partial Class Form1
         '
         'Button5
         '
+        Me.Button5.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Button5.BackColor = System.Drawing.SystemColors.Window
         Me.Button5.FlatAppearance.BorderColor = System.Drawing.Color.Silver
         Me.Button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat
@@ -354,6 +426,8 @@ Partial Class Form1
         '
         'Button4
         '
+        Me.Button4.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Button4.BackColor = System.Drawing.SystemColors.Window
         Me.Button4.FlatAppearance.BorderColor = System.Drawing.Color.Silver
         Me.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
@@ -369,6 +443,8 @@ Partial Class Form1
         '
         'Button3
         '
+        Me.Button3.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Button3.BackColor = System.Drawing.SystemColors.Window
         Me.Button3.FlatAppearance.BorderColor = System.Drawing.Color.Silver
         Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
@@ -384,6 +460,8 @@ Partial Class Form1
         '
         'Button2
         '
+        Me.Button2.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Button2.BackColor = System.Drawing.SystemColors.Window
         Me.Button2.FlatAppearance.BorderColor = System.Drawing.Color.Silver
         Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
@@ -399,6 +477,8 @@ Partial Class Form1
         '
         'Button1
         '
+        Me.Button1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Button1.BackColor = System.Drawing.SystemColors.Window
         Me.Button1.FlatAppearance.BorderColor = System.Drawing.Color.Silver
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
@@ -418,19 +498,21 @@ Partial Class Form1
         Me.DataGridView1.AllowUserToOrderColumns = True
         Me.DataGridView1.BackgroundColor = System.Drawing.SystemColors.Window
         Me.DataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.DataGridView1.CausesValidation = False
         Me.DataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DataGridView1.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically
-        Me.DataGridView1.Location = New System.Drawing.Point(0, 23)
+        Me.DataGridView1.Location = New System.Drawing.Point(0, 19)
         Me.DataGridView1.Margin = New System.Windows.Forms.Padding(2)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.ReadOnly = True
         Me.DataGridView1.RowHeadersVisible = False
+        Me.DataGridView1.RowHeadersWidth = 50
         Me.DataGridView1.RowTemplate.Height = 24
         Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DataGridView1.ShowEditingIcon = False
-        Me.DataGridView1.Size = New System.Drawing.Size(374, 269)
+        Me.DataGridView1.Size = New System.Drawing.Size(370, 269)
         Me.DataGridView1.TabIndex = 0
         '
         'BackgroundWorker1
@@ -440,13 +522,24 @@ Partial Class Form1
         '
         'Panel1
         '
-        Me.Panel1.BackColor = System.Drawing.SystemColors.MenuHighlight
+        Me.Panel1.BackColor = System.Drawing.Color.Silver
+        Me.Panel1.Controls.Add(Me.SplitContainer3)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.Panel1.Location = New System.Drawing.Point(0, 539)
         Me.Panel1.Margin = New System.Windows.Forms.Padding(2)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(865, 17)
         Me.Panel1.TabIndex = 5
+        '
+        'SplitContainer3
+        '
+        Me.SplitContainer3.BackColor = System.Drawing.Color.DarkRed
+        Me.SplitContainer3.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.SplitContainer3.Location = New System.Drawing.Point(0, 0)
+        Me.SplitContainer3.Name = "SplitContainer3"
+        Me.SplitContainer3.Size = New System.Drawing.Size(865, 17)
+        Me.SplitContainer3.SplitterDistance = 433
+        Me.SplitContainer3.TabIndex = 0
         '
         'Panel2
         '
@@ -455,7 +548,7 @@ Partial Class Form1
         Me.Panel2.Location = New System.Drawing.Point(0, 24)
         Me.Panel2.Margin = New System.Windows.Forms.Padding(2)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(865, 10)
+        Me.Panel2.Size = New System.Drawing.Size(865, 17)
         Me.Panel2.TabIndex = 7
         '
         'panelHeader
@@ -463,11 +556,39 @@ Partial Class Form1
         Me.panelHeader.BackColor = System.Drawing.SystemColors.InactiveBorder
         Me.panelHeader.Controls.Add(Me.TabControl1)
         Me.panelHeader.Dock = System.Windows.Forms.DockStyle.Top
-        Me.panelHeader.Location = New System.Drawing.Point(0, 34)
+        Me.panelHeader.Location = New System.Drawing.Point(0, 41)
         Me.panelHeader.Margin = New System.Windows.Forms.Padding(2)
         Me.panelHeader.Name = "panelHeader"
         Me.panelHeader.Size = New System.Drawing.Size(865, 80)
         Me.panelHeader.TabIndex = 9
+        '
+        'TabControl1
+        '
+        Me.TabControl1.Controls.Add(Me.TabPage1)
+        Me.TabControl1.Controls.Add(Me.TabPage2)
+        Me.TabControl1.Controls.Add(Me.TabPage6)
+        Me.TabControl1.Controls.Add(Me.TabPage5)
+        Me.TabControl1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TabControl1.Font = New System.Drawing.Font("Calibri", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TabControl1.Location = New System.Drawing.Point(0, 0)
+        Me.TabControl1.Multiline = True
+        Me.TabControl1.Name = "TabControl1"
+        Me.TabControl1.RightToLeftLayout = True
+        Me.TabControl1.SelectedIndex = 0
+        Me.TabControl1.Size = New System.Drawing.Size(865, 80)
+        Me.TabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed
+        Me.TabControl1.TabIndex = 7
+        '
+        'TabPage1
+        '
+        Me.TabPage1.Controls.Add(Me.TableLayoutPanel1)
+        Me.TabPage1.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage1.Name = "TabPage1"
+        Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage1.Size = New System.Drawing.Size(857, 54)
+        Me.TabPage1.TabIndex = 0
+        Me.TabPage1.Text = "Primary headers"
+        Me.TabPage1.UseVisualStyleBackColor = True
         '
         'TableLayoutPanel1
         '
@@ -486,7 +607,7 @@ Partial Class Form1
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 19.0!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 16.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(426, 45)
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(426, 36)
         Me.TableLayoutPanel1.TabIndex = 7
         '
         'txtSubject
@@ -494,24 +615,26 @@ Partial Class Form1
         Me.txtSubject.BackColor = System.Drawing.SystemColors.Window
         Me.txtSubject.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.txtSubject.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.txtSubject.Font = New System.Drawing.Font("Calibri", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtSubject.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtSubject.Location = New System.Drawing.Point(65, 2)
         Me.txtSubject.Margin = New System.Windows.Forms.Padding(2)
+        Me.txtSubject.Multiline = True
         Me.txtSubject.Name = "txtSubject"
         Me.txtSubject.ReadOnly = True
-        Me.txtSubject.Size = New System.Drawing.Size(359, 15)
+        Me.txtSubject.Size = New System.Drawing.Size(359, 14)
         Me.txtSubject.TabIndex = 4
         Me.txtSubject.TabStop = False
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Calibri", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.ForeColor = System.Drawing.SystemColors.ControlDark
-        Me.Label1.Location = New System.Drawing.Point(2, 0)
+        Me.Label1.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.Label1.Font = New System.Drawing.Font("Calibri", 7.75!)
+        Me.Label1.ForeColor = System.Drawing.SystemColors.ControlDarkDark
+        Me.Label1.Location = New System.Drawing.Point(2, 5)
         Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(53, 15)
+        Me.Label1.Size = New System.Drawing.Size(59, 13)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Subject: "
         '
@@ -520,26 +643,55 @@ Partial Class Form1
         Me.txtFrom.BackColor = System.Drawing.SystemColors.Window
         Me.txtFrom.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.txtFrom.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.txtFrom.Font = New System.Drawing.Font("Calibri", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtFrom.Location = New System.Drawing.Point(65, 24)
+        Me.txtFrom.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtFrom.Location = New System.Drawing.Point(65, 20)
         Me.txtFrom.Margin = New System.Windows.Forms.Padding(2)
         Me.txtFrom.Name = "txtFrom"
         Me.txtFrom.ReadOnly = True
-        Me.txtFrom.Size = New System.Drawing.Size(359, 15)
+        Me.txtFrom.Size = New System.Drawing.Size(359, 14)
         Me.txtFrom.TabIndex = 5
         Me.txtFrom.TabStop = False
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Calibri", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.ForeColor = System.Drawing.SystemColors.ControlDark
-        Me.Label2.Location = New System.Drawing.Point(2, 22)
+        Me.Label2.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.Label2.Font = New System.Drawing.Font("Calibri", 7.75!)
+        Me.Label2.ForeColor = System.Drawing.SystemColors.ControlDarkDark
+        Me.Label2.Location = New System.Drawing.Point(2, 23)
         Me.Label2.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(38, 15)
+        Me.Label2.Size = New System.Drawing.Size(59, 13)
         Me.Label2.TabIndex = 2
         Me.Label2.Text = "From:"
+        '
+        'TabPage2
+        '
+        Me.TabPage2.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage2.Name = "TabPage2"
+        Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage2.Size = New System.Drawing.Size(857, 54)
+        Me.TabPage2.TabIndex = 1
+        Me.TabPage2.Text = "Received headers"
+        Me.TabPage2.UseVisualStyleBackColor = True
+        '
+        'TabPage6
+        '
+        Me.TabPage6.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage6.Name = "TabPage6"
+        Me.TabPage6.Size = New System.Drawing.Size(857, 54)
+        Me.TabPage6.TabIndex = 3
+        Me.TabPage6.Text = "TMASE headers"
+        Me.TabPage6.UseVisualStyleBackColor = True
+        '
+        'TabPage5
+        '
+        Me.TabPage5.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage5.Name = "TabPage5"
+        Me.TabPage5.Size = New System.Drawing.Size(857, 54)
+        Me.TabPage5.TabIndex = 2
+        Me.TabPage5.Text = "Others"
+        Me.TabPage5.UseVisualStyleBackColor = True
         '
         'Panel3
         '
@@ -563,21 +715,23 @@ Partial Class Form1
         Me.Panel3.Controls.Add(Me.Button5)
         Me.Panel3.Controls.Add(Me.Button7)
         Me.Panel3.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Panel3.Location = New System.Drawing.Point(813, 114)
+        Me.Panel3.Location = New System.Drawing.Point(813, 121)
         Me.Panel3.Margin = New System.Windows.Forms.Padding(2)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(52, 425)
+        Me.Panel3.Size = New System.Drawing.Size(52, 418)
         Me.Panel3.TabIndex = 10
         '
         'SplitContainer1
         '
         Me.SplitContainer1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.SplitContainer1.Location = New System.Drawing.Point(0, 114)
+        Me.SplitContainer1.Location = New System.Drawing.Point(0, 121)
         Me.SplitContainer1.Margin = New System.Windows.Forms.Padding(2)
         Me.SplitContainer1.Name = "SplitContainer1"
         '
         'SplitContainer1.Panel1
         '
+        Me.SplitContainer1.Panel1.Controls.Add(Me.Button24)
+        Me.SplitContainer1.Panel1.Controls.Add(Me.Button25)
         Me.SplitContainer1.Panel1.Controls.Add(Me.TabControl2)
         Me.SplitContainer1.Panel1.Controls.Add(Me.Panel4)
         Me.SplitContainer1.Panel1.Controls.Add(Me.Panel7)
@@ -588,171 +742,54 @@ Partial Class Form1
         Me.SplitContainer1.Panel2.Controls.Add(Me.SplitContainer2)
         Me.SplitContainer1.Panel2.Controls.Add(Me.Splitter1)
         Me.SplitContainer1.Panel2MinSize = 50
-        Me.SplitContainer1.Size = New System.Drawing.Size(813, 425)
-        Me.SplitContainer1.SplitterDistance = 434
+        Me.SplitContainer1.Size = New System.Drawing.Size(813, 418)
+        Me.SplitContainer1.SplitterDistance = 438
         Me.SplitContainer1.SplitterWidth = 5
         Me.SplitContainer1.TabIndex = 11
         '
-        'Panel7
+        'Button24
         '
-        Me.Panel7.BackColor = System.Drawing.SystemColors.ControlLightLight
-        Me.Panel7.Controls.Add(Me.urlLabel)
-        Me.Panel7.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel7.Location = New System.Drawing.Point(0, 404)
-        Me.Panel7.Margin = New System.Windows.Forms.Padding(2)
-        Me.Panel7.Name = "Panel7"
-        Me.Panel7.Size = New System.Drawing.Size(434, 21)
-        Me.Panel7.TabIndex = 3
+        Me.Button24.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Button24.BackColor = System.Drawing.Color.LightGray
+        Me.Button24.FlatAppearance.BorderColor = System.Drawing.Color.Gray
+        Me.Button24.FlatStyle = System.Windows.Forms.FlatStyle.System
+        Me.Button24.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.25!)
+        Me.Button24.ForeColor = System.Drawing.SystemColors.ControlDarkDark
+        Me.Button24.Location = New System.Drawing.Point(418, 64)
+        Me.Button24.Name = "Button24"
+        Me.Button24.Size = New System.Drawing.Size(18, 19)
+        Me.Button24.TabIndex = 6
+        Me.Button24.Text = ">"
+        Me.Button24.UseVisualStyleBackColor = False
         '
-        'urlLabel
+        'Button25
         '
-        Me.urlLabel.AutoSize = True
-        Me.urlLabel.Location = New System.Drawing.Point(2, 4)
-        Me.urlLabel.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.urlLabel.Name = "urlLabel"
-        Me.urlLabel.Size = New System.Drawing.Size(39, 13)
-        Me.urlLabel.TabIndex = 0
-        Me.urlLabel.Text = "Label3"
-        '
-        'SplitContainer2
-        '
-        Me.SplitContainer2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.SplitContainer2.Location = New System.Drawing.Point(0, 2)
-        Me.SplitContainer2.Margin = New System.Windows.Forms.Padding(2)
-        Me.SplitContainer2.Name = "SplitContainer2"
-        Me.SplitContainer2.Orientation = System.Windows.Forms.Orientation.Horizontal
-        '
-        'SplitContainer2.Panel1
-        '
-        Me.SplitContainer2.Panel1.Controls.Add(Me.treeViewEmail)
-        Me.SplitContainer2.Panel1.Controls.Add(Me.Panel5)
-        '
-        'SplitContainer2.Panel2
-        '
-        Me.SplitContainer2.Panel2.Controls.Add(Me.Panel8)
-        Me.SplitContainer2.Panel2.Controls.Add(Me.DataGridView1)
-        Me.SplitContainer2.Panel2.Controls.Add(Me.Panel6)
-        Me.SplitContainer2.Size = New System.Drawing.Size(374, 423)
-        Me.SplitContainer2.SplitterDistance = 128
-        Me.SplitContainer2.SplitterWidth = 3
-        Me.SplitContainer2.TabIndex = 1
-        '
-        'treeViewEmail
-        '
-        Me.treeViewEmail.BackColor = System.Drawing.SystemColors.Window
-        Me.treeViewEmail.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.treeViewEmail.Location = New System.Drawing.Point(0, 21)
-        Me.treeViewEmail.Margin = New System.Windows.Forms.Padding(2)
-        Me.treeViewEmail.Name = "treeViewEmail"
-        Me.treeViewEmail.Size = New System.Drawing.Size(374, 107)
-        Me.treeViewEmail.TabIndex = 1
-        '
-        'Panel5
-        '
-        Me.Panel5.BackColor = System.Drawing.SystemColors.ControlLightLight
-        Me.Panel5.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Panel5.Location = New System.Drawing.Point(0, 0)
-        Me.Panel5.Margin = New System.Windows.Forms.Padding(2)
-        Me.Panel5.Name = "Panel5"
-        Me.Panel5.Size = New System.Drawing.Size(374, 21)
-        Me.Panel5.TabIndex = 0
-        '
-        'Panel8
-        '
-        Me.Panel8.Controls.Add(Me.lblStatus)
-        Me.Panel8.Controls.Add(Me.ProgressBar1)
-        Me.Panel8.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel8.Location = New System.Drawing.Point(0, 272)
-        Me.Panel8.Margin = New System.Windows.Forms.Padding(2)
-        Me.Panel8.Name = "Panel8"
-        Me.Panel8.Size = New System.Drawing.Size(374, 20)
-        Me.Panel8.TabIndex = 1
-        '
-        'lblStatus
-        '
-        Me.lblStatus.AutoSize = True
-        Me.lblStatus.Location = New System.Drawing.Point(104, 3)
-        Me.lblStatus.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.lblStatus.Name = "lblStatus"
-        Me.lblStatus.Size = New System.Drawing.Size(39, 13)
-        Me.lblStatus.TabIndex = 1
-        Me.lblStatus.Text = "Label3"
-        '
-        'ProgressBar1
-        '
-        Me.ProgressBar1.BackColor = System.Drawing.SystemColors.ControlDark
-        Me.ProgressBar1.Location = New System.Drawing.Point(4, 2)
-        Me.ProgressBar1.Margin = New System.Windows.Forms.Padding(2)
-        Me.ProgressBar1.Name = "ProgressBar1"
-        Me.ProgressBar1.Size = New System.Drawing.Size(100, 14)
-        Me.ProgressBar1.TabIndex = 0
-        '
-        'Panel6
-        '
-        Me.Panel6.BackColor = System.Drawing.SystemColors.ControlLightLight
-        Me.Panel6.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Panel6.Location = New System.Drawing.Point(0, 0)
-        Me.Panel6.Margin = New System.Windows.Forms.Padding(2)
-        Me.Panel6.Name = "Panel6"
-        Me.Panel6.Size = New System.Drawing.Size(374, 23)
-        Me.Panel6.TabIndex = 0
-        '
-        'Splitter1
-        '
-        Me.Splitter1.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Splitter1.Location = New System.Drawing.Point(0, 0)
-        Me.Splitter1.Margin = New System.Windows.Forms.Padding(2)
-        Me.Splitter1.Name = "Splitter1"
-        Me.Splitter1.Size = New System.Drawing.Size(374, 2)
-        Me.Splitter1.TabIndex = 0
-        Me.Splitter1.TabStop = False
-        '
-        'TabControl1
-        '
-        Me.TabControl1.Controls.Add(Me.TabPage1)
-        Me.TabControl1.Controls.Add(Me.TabPage2)
-        Me.TabControl1.Controls.Add(Me.TabPage6)
-        Me.TabControl1.Controls.Add(Me.TabPage5)
-        Me.TabControl1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TabControl1.Location = New System.Drawing.Point(0, 0)
-        Me.TabControl1.Multiline = True
-        Me.TabControl1.Name = "TabControl1"
-        Me.TabControl1.RightToLeftLayout = True
-        Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(865, 80)
-        Me.TabControl1.TabIndex = 7
-        '
-        'TabPage1
-        '
-        Me.TabPage1.Controls.Add(Me.TableLayoutPanel1)
-        Me.TabPage1.Location = New System.Drawing.Point(4, 22)
-        Me.TabPage1.Name = "TabPage1"
-        Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(857, 54)
-        Me.TabPage1.TabIndex = 0
-        Me.TabPage1.Text = "Primary headers"
-        Me.TabPage1.UseVisualStyleBackColor = True
-        '
-        'TabPage2
-        '
-        Me.TabPage2.Location = New System.Drawing.Point(4, 22)
-        Me.TabPage2.Name = "TabPage2"
-        Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(857, 54)
-        Me.TabPage2.TabIndex = 1
-        Me.TabPage2.Text = "Received headers"
-        Me.TabPage2.UseVisualStyleBackColor = True
+        Me.Button25.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Button25.BackColor = System.Drawing.Color.LightGray
+        Me.Button25.BackgroundImage = CType(resources.GetObject("Button25.BackgroundImage"), System.Drawing.Image)
+        Me.Button25.FlatAppearance.BorderColor = System.Drawing.Color.Gray
+        Me.Button25.FlatStyle = System.Windows.Forms.FlatStyle.System
+        Me.Button25.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.25!)
+        Me.Button25.ForeColor = System.Drawing.SystemColors.ControlDarkDark
+        Me.Button25.Location = New System.Drawing.Point(401, 64)
+        Me.Button25.Name = "Button25"
+        Me.Button25.Size = New System.Drawing.Size(18, 19)
+        Me.Button25.TabIndex = 5
+        Me.Button25.Text = "<"
+        Me.Button25.UseVisualStyleBackColor = False
         '
         'TabControl2
         '
         Me.TabControl2.Controls.Add(Me.TabPage3)
         Me.TabControl2.Controls.Add(Me.TabPage4)
         Me.TabControl2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TabControl2.Location = New System.Drawing.Point(0, 65)
+        Me.TabControl2.Font = New System.Drawing.Font("Calibri", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TabControl2.Location = New System.Drawing.Point(0, 64)
         Me.TabControl2.Multiline = True
         Me.TabControl2.Name = "TabControl2"
         Me.TabControl2.SelectedIndex = 0
-        Me.TabControl2.Size = New System.Drawing.Size(434, 339)
+        Me.TabControl2.Size = New System.Drawing.Size(438, 333)
+        Me.TabControl2.SizeMode = System.Windows.Forms.TabSizeMode.Fixed
         Me.TabControl2.TabIndex = 4
         '
         'TabPage3
@@ -762,31 +799,21 @@ Partial Class Form1
         Me.TabPage3.Location = New System.Drawing.Point(4, 22)
         Me.TabPage3.Name = "TabPage3"
         Me.TabPage3.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage3.Size = New System.Drawing.Size(426, 313)
+        Me.TabPage3.Size = New System.Drawing.Size(430, 307)
         Me.TabPage3.TabIndex = 0
         Me.TabPage3.Text = "Mail View"
         Me.TabPage3.UseVisualStyleBackColor = True
-        '
-        'TabPage4
-        '
-        Me.TabPage4.Location = New System.Drawing.Point(4, 22)
-        Me.TabPage4.Name = "TabPage4"
-        Me.TabPage4.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage4.Size = New System.Drawing.Size(426, 355)
-        Me.TabPage4.TabIndex = 1
-        Me.TabPage4.Text = "Text View"
-        Me.TabPage4.UseVisualStyleBackColor = True
         '
         'WebBrowser1
         '
         Me.WebBrowser1.AllowWebBrowserDrop = False
         Me.WebBrowser1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.WebBrowser1.Location = New System.Drawing.Point(3, 29)
+        Me.WebBrowser1.Location = New System.Drawing.Point(3, 41)
         Me.WebBrowser1.Margin = New System.Windows.Forms.Padding(2)
         Me.WebBrowser1.MinimumSize = New System.Drawing.Size(15, 16)
         Me.WebBrowser1.Name = "WebBrowser1"
         Me.WebBrowser1.ScriptErrorsSuppressed = True
-        Me.WebBrowser1.Size = New System.Drawing.Size(420, 281)
+        Me.WebBrowser1.Size = New System.Drawing.Size(424, 263)
         Me.WebBrowser1.TabIndex = 4
         Me.WebBrowser1.Url = New System.Uri("", System.UriKind.Relative)
         '
@@ -797,26 +824,8 @@ Partial Class Form1
         Me.Panel9.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel9.Location = New System.Drawing.Point(3, 3)
         Me.Panel9.Name = "Panel9"
-        Me.Panel9.Size = New System.Drawing.Size(420, 26)
+        Me.Panel9.Size = New System.Drawing.Size(424, 38)
         Me.Panel9.TabIndex = 0
-        '
-        'TabPage5
-        '
-        Me.TabPage5.Location = New System.Drawing.Point(4, 22)
-        Me.TabPage5.Name = "TabPage5"
-        Me.TabPage5.Size = New System.Drawing.Size(857, 54)
-        Me.TabPage5.TabIndex = 2
-        Me.TabPage5.Text = "Others"
-        Me.TabPage5.UseVisualStyleBackColor = True
-        '
-        'TabPage6
-        '
-        Me.TabPage6.Location = New System.Drawing.Point(4, 22)
-        Me.TabPage6.Name = "TabPage6"
-        Me.TabPage6.Size = New System.Drawing.Size(857, 54)
-        Me.TabPage6.TabIndex = 3
-        Me.TabPage6.Text = "TMASE headers"
-        Me.TabPage6.UseVisualStyleBackColor = True
         '
         'Label3
         '
@@ -824,165 +833,31 @@ Partial Class Form1
         Me.Label3.ForeColor = System.Drawing.SystemColors.ControlDark
         Me.Label3.Location = New System.Drawing.Point(5, 4)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(61, 13)
+        Me.Label3.Size = New System.Drawing.Size(62, 13)
         Me.Label3.TabIndex = 0
         Me.Label3.Text = "Attachment"
         '
+        'TabPage4
+        '
+        Me.TabPage4.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage4.Name = "TabPage4"
+        Me.TabPage4.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage4.Size = New System.Drawing.Size(430, 307)
+        Me.TabPage4.TabIndex = 1
+        Me.TabPage4.Text = "Text View"
+        Me.TabPage4.UseVisualStyleBackColor = True
+        '
         'Panel4
         '
-        Me.Panel4.BackColor = System.Drawing.SystemColors.Control
+        Me.Panel4.BackColor = System.Drawing.Color.Transparent
         Me.Panel4.Controls.Add(Me.GroupBox3)
         Me.Panel4.Controls.Add(Me.GroupBox2)
         Me.Panel4.Controls.Add(Me.GroupBox1)
         Me.Panel4.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel4.Location = New System.Drawing.Point(0, 0)
         Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(434, 65)
+        Me.Panel4.Size = New System.Drawing.Size(438, 64)
         Me.Panel4.TabIndex = 4
-        '
-        'Button19
-        '
-        Me.Button19.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.Button19.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray
-        Me.Button19.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button19.Font = New System.Drawing.Font("Calibri", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button19.ForeColor = System.Drawing.SystemColors.GrayText
-        Me.Button19.Location = New System.Drawing.Point(6, 14)
-        Me.Button19.Name = "Button19"
-        Me.Button19.Size = New System.Drawing.Size(62, 21)
-        Me.Button19.TabIndex = 0
-        Me.Button19.Text = "Normal"
-        Me.Button19.UseVisualStyleBackColor = False
-        '
-        'Button20
-        '
-        Me.Button20.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.Button20.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray
-        Me.Button20.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button20.Font = New System.Drawing.Font("Calibri", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button20.ForeColor = System.Drawing.SystemColors.GrayText
-        Me.Button20.Location = New System.Drawing.Point(67, 14)
-        Me.Button20.Name = "Button20"
-        Me.Button20.Size = New System.Drawing.Size(62, 21)
-        Me.Button20.TabIndex = 1
-        Me.Button20.Text = "Spam"
-        Me.Button20.UseVisualStyleBackColor = False
-        '
-        'Button21
-        '
-        Me.Button21.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.Button21.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray
-        Me.Button21.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button21.Font = New System.Drawing.Font("Calibri", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button21.ForeColor = System.Drawing.SystemColors.GrayText
-        Me.Button21.Location = New System.Drawing.Point(67, 34)
-        Me.Button21.Name = "Button21"
-        Me.Button21.Size = New System.Drawing.Size(62, 21)
-        Me.Button21.TabIndex = 3
-        Me.Button21.Text = "Invalid"
-        Me.Button21.UseVisualStyleBackColor = False
-        '
-        'Button22
-        '
-        Me.Button22.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.Button22.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray
-        Me.Button22.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button22.Font = New System.Drawing.Font("Calibri", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button22.ForeColor = System.Drawing.SystemColors.GrayText
-        Me.Button22.Location = New System.Drawing.Point(6, 34)
-        Me.Button22.Name = "Button22"
-        Me.Button22.Size = New System.Drawing.Size(62, 21)
-        Me.Button22.TabIndex = 2
-        Me.Button22.Text = "MML"
-        Me.Button22.UseVisualStyleBackColor = False
-        '
-        'GroupBox1
-        '
-        Me.GroupBox1.Controls.Add(Me.Button20)
-        Me.GroupBox1.Controls.Add(Me.Button22)
-        Me.GroupBox1.Controls.Add(Me.Button19)
-        Me.GroupBox1.Controls.Add(Me.Button21)
-        Me.GroupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.0!)
-        Me.GroupBox1.ForeColor = System.Drawing.SystemColors.ControlDarkDark
-        Me.GroupBox1.Location = New System.Drawing.Point(3, 2)
-        Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(136, 60)
-        Me.GroupBox1.TabIndex = 8
-        Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "Tag"
-        '
-        'GroupBox2
-        '
-        Me.GroupBox2.Controls.Add(Me.Button27)
-        Me.GroupBox2.Controls.Add(Me.Button28)
-        Me.GroupBox2.Controls.Add(Me.Button29)
-        Me.GroupBox2.Controls.Add(Me.Button30)
-        Me.GroupBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.GroupBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.0!)
-        Me.GroupBox2.ForeColor = System.Drawing.SystemColors.ControlDarkDark
-        Me.GroupBox2.Location = New System.Drawing.Point(136, 2)
-        Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(145, 60)
-        Me.GroupBox2.TabIndex = 9
-        Me.GroupBox2.TabStop = False
-        Me.GroupBox2.Text = "Hash Solution"
-        '
-        'Button27
-        '
-        Me.Button27.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.Button27.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray
-        Me.Button27.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button27.Font = New System.Drawing.Font("Calibri", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button27.ForeColor = System.Drawing.SystemColors.GrayText
-        Me.Button27.Location = New System.Drawing.Point(71, 14)
-        Me.Button27.Name = "Button27"
-        Me.Button27.Size = New System.Drawing.Size(68, 21)
-        Me.Button27.TabIndex = 1
-        Me.Button27.Text = "Tag"
-        Me.Button27.UseVisualStyleBackColor = False
-        '
-        'Button28
-        '
-        Me.Button28.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.Button28.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray
-        Me.Button28.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button28.Font = New System.Drawing.Font("Calibri", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button28.ForeColor = System.Drawing.SystemColors.GrayText
-        Me.Button28.Location = New System.Drawing.Point(4, 34)
-        Me.Button28.Name = "Button28"
-        Me.Button28.Size = New System.Drawing.Size(68, 21)
-        Me.Button28.TabIndex = 2
-        Me.Button28.Text = "Text"
-        Me.Button28.UseVisualStyleBackColor = False
-        '
-        'Button29
-        '
-        Me.Button29.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.Button29.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray
-        Me.Button29.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button29.Font = New System.Drawing.Font("Calibri", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button29.ForeColor = System.Drawing.SystemColors.GrayText
-        Me.Button29.Location = New System.Drawing.Point(4, 14)
-        Me.Button29.Name = "Button29"
-        Me.Button29.Size = New System.Drawing.Size(68, 21)
-        Me.Button29.TabIndex = 0
-        Me.Button29.Text = "Attach"
-        Me.Button29.UseVisualStyleBackColor = False
-        '
-        'Button30
-        '
-        Me.Button30.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.Button30.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray
-        Me.Button30.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button30.Font = New System.Drawing.Font("Calibri", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button30.ForeColor = System.Drawing.SystemColors.GrayText
-        Me.Button30.Location = New System.Drawing.Point(71, 34)
-        Me.Button30.Name = "Button30"
-        Me.Button30.Size = New System.Drawing.Size(68, 21)
-        Me.Button30.TabIndex = 3
-        Me.Button30.Text = "URL"
-        Me.Button30.UseVisualStyleBackColor = False
         '
         'GroupBox3
         '
@@ -993,7 +868,7 @@ Partial Class Form1
         Me.GroupBox3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.GroupBox3.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.0!)
         Me.GroupBox3.ForeColor = System.Drawing.SystemColors.ControlDarkDark
-        Me.GroupBox3.Location = New System.Drawing.Point(277, 2)
+        Me.GroupBox3.Location = New System.Drawing.Point(281, 1)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.Size = New System.Drawing.Size(150, 60)
         Me.GroupBox3.TabIndex = 10
@@ -1056,11 +931,293 @@ Partial Class Form1
         Me.Button34.Text = "Others"
         Me.Button34.UseVisualStyleBackColor = False
         '
+        'GroupBox2
+        '
+        Me.GroupBox2.Controls.Add(Me.Button27)
+        Me.GroupBox2.Controls.Add(Me.Button28)
+        Me.GroupBox2.Controls.Add(Me.Button29)
+        Me.GroupBox2.Controls.Add(Me.Button30)
+        Me.GroupBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.GroupBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.0!)
+        Me.GroupBox2.ForeColor = System.Drawing.SystemColors.ControlDarkDark
+        Me.GroupBox2.Location = New System.Drawing.Point(137, 0)
+        Me.GroupBox2.Name = "GroupBox2"
+        Me.GroupBox2.Size = New System.Drawing.Size(143, 60)
+        Me.GroupBox2.TabIndex = 9
+        Me.GroupBox2.TabStop = False
+        Me.GroupBox2.Text = "Hash Solution"
+        '
+        'Button27
+        '
+        Me.Button27.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.Button27.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray
+        Me.Button27.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button27.Font = New System.Drawing.Font("Calibri", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button27.ForeColor = System.Drawing.SystemColors.GrayText
+        Me.Button27.Location = New System.Drawing.Point(71, 14)
+        Me.Button27.Name = "Button27"
+        Me.Button27.Size = New System.Drawing.Size(68, 21)
+        Me.Button27.TabIndex = 1
+        Me.Button27.Text = "Tag"
+        Me.Button27.UseVisualStyleBackColor = False
+        '
+        'Button28
+        '
+        Me.Button28.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.Button28.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray
+        Me.Button28.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button28.Font = New System.Drawing.Font("Calibri", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button28.ForeColor = System.Drawing.SystemColors.GrayText
+        Me.Button28.Location = New System.Drawing.Point(4, 34)
+        Me.Button28.Name = "Button28"
+        Me.Button28.Size = New System.Drawing.Size(68, 21)
+        Me.Button28.TabIndex = 2
+        Me.Button28.Text = "Text"
+        Me.Button28.UseVisualStyleBackColor = False
+        '
+        'Button29
+        '
+        Me.Button29.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.Button29.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray
+        Me.Button29.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button29.Font = New System.Drawing.Font("Calibri", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button29.ForeColor = System.Drawing.SystemColors.GrayText
+        Me.Button29.Location = New System.Drawing.Point(4, 14)
+        Me.Button29.Name = "Button29"
+        Me.Button29.Size = New System.Drawing.Size(68, 21)
+        Me.Button29.TabIndex = 0
+        Me.Button29.Text = "Attach"
+        Me.Button29.UseVisualStyleBackColor = False
+        '
+        'Button30
+        '
+        Me.Button30.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.Button30.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray
+        Me.Button30.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button30.Font = New System.Drawing.Font("Calibri", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button30.ForeColor = System.Drawing.SystemColors.GrayText
+        Me.Button30.Location = New System.Drawing.Point(71, 34)
+        Me.Button30.Name = "Button30"
+        Me.Button30.Size = New System.Drawing.Size(68, 21)
+        Me.Button30.TabIndex = 3
+        Me.Button30.Text = "URL"
+        Me.Button30.UseVisualStyleBackColor = False
+        '
+        'GroupBox1
+        '
+        Me.GroupBox1.Controls.Add(Me.Button20)
+        Me.GroupBox1.Controls.Add(Me.Button22)
+        Me.GroupBox1.Controls.Add(Me.Button19)
+        Me.GroupBox1.Controls.Add(Me.Button21)
+        Me.GroupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.0!)
+        Me.GroupBox1.ForeColor = System.Drawing.SystemColors.ControlDarkDark
+        Me.GroupBox1.Location = New System.Drawing.Point(2, 0)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(140, 60)
+        Me.GroupBox1.TabIndex = 8
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "Tag"
+        '
+        'Button20
+        '
+        Me.Button20.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.Button20.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray
+        Me.Button20.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button20.Font = New System.Drawing.Font("Calibri", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button20.ForeColor = System.Drawing.SystemColors.GrayText
+        Me.Button20.Location = New System.Drawing.Point(67, 14)
+        Me.Button20.Name = "Button20"
+        Me.Button20.Size = New System.Drawing.Size(62, 21)
+        Me.Button20.TabIndex = 1
+        Me.Button20.Text = "Spam"
+        Me.Button20.UseVisualStyleBackColor = False
+        '
+        'Button22
+        '
+        Me.Button22.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.Button22.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray
+        Me.Button22.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button22.Font = New System.Drawing.Font("Calibri", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button22.ForeColor = System.Drawing.SystemColors.GrayText
+        Me.Button22.Location = New System.Drawing.Point(6, 34)
+        Me.Button22.Name = "Button22"
+        Me.Button22.Size = New System.Drawing.Size(62, 21)
+        Me.Button22.TabIndex = 2
+        Me.Button22.Text = "MML"
+        Me.Button22.UseVisualStyleBackColor = False
+        '
+        'Button19
+        '
+        Me.Button19.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.Button19.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray
+        Me.Button19.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button19.Font = New System.Drawing.Font("Calibri", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button19.ForeColor = System.Drawing.SystemColors.GrayText
+        Me.Button19.Location = New System.Drawing.Point(6, 14)
+        Me.Button19.Name = "Button19"
+        Me.Button19.Size = New System.Drawing.Size(62, 21)
+        Me.Button19.TabIndex = 0
+        Me.Button19.Text = "Normal"
+        Me.Button19.UseVisualStyleBackColor = False
+        '
+        'Button21
+        '
+        Me.Button21.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.Button21.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray
+        Me.Button21.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button21.Font = New System.Drawing.Font("Calibri", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button21.ForeColor = System.Drawing.SystemColors.GrayText
+        Me.Button21.Location = New System.Drawing.Point(67, 34)
+        Me.Button21.Name = "Button21"
+        Me.Button21.Size = New System.Drawing.Size(62, 21)
+        Me.Button21.TabIndex = 3
+        Me.Button21.Text = "Invalid"
+        Me.Button21.UseVisualStyleBackColor = False
+        '
+        'Panel7
+        '
+        Me.Panel7.BackColor = System.Drawing.SystemColors.ControlLightLight
+        Me.Panel7.Controls.Add(Me.urlLabel)
+        Me.Panel7.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.Panel7.Location = New System.Drawing.Point(0, 397)
+        Me.Panel7.Margin = New System.Windows.Forms.Padding(2)
+        Me.Panel7.Name = "Panel7"
+        Me.Panel7.Size = New System.Drawing.Size(438, 21)
+        Me.Panel7.TabIndex = 3
+        '
+        'urlLabel
+        '
+        Me.urlLabel.AutoSize = True
+        Me.urlLabel.Font = New System.Drawing.Font("Lucida Sans Typewriter", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.urlLabel.Location = New System.Drawing.Point(2, 4)
+        Me.urlLabel.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.urlLabel.Name = "urlLabel"
+        Me.urlLabel.Size = New System.Drawing.Size(47, 12)
+        Me.urlLabel.TabIndex = 0
+        Me.urlLabel.Text = "Label3"
+        '
+        'SplitContainer2
+        '
+        Me.SplitContainer2.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.SplitContainer2.Location = New System.Drawing.Point(0, 2)
+        Me.SplitContainer2.Margin = New System.Windows.Forms.Padding(2)
+        Me.SplitContainer2.Name = "SplitContainer2"
+        Me.SplitContainer2.Orientation = System.Windows.Forms.Orientation.Horizontal
+        '
+        'SplitContainer2.Panel1
+        '
+        Me.SplitContainer2.Panel1.Controls.Add(Me.treeViewEmail)
+        Me.SplitContainer2.Panel1.Controls.Add(Me.Panel5)
+        Me.SplitContainer2.Panel1.Controls.Add(Me.Button23)
+        '
+        'SplitContainer2.Panel2
+        '
+        Me.SplitContainer2.Panel2.Controls.Add(Me.Panel8)
+        Me.SplitContainer2.Panel2.Controls.Add(Me.DataGridView1)
+        Me.SplitContainer2.Panel2.Controls.Add(Me.Panel6)
+        Me.SplitContainer2.Size = New System.Drawing.Size(370, 416)
+        Me.SplitContainer2.SplitterDistance = 125
+        Me.SplitContainer2.SplitterWidth = 3
+        Me.SplitContainer2.TabIndex = 1
+        '
+        'treeViewEmail
+        '
+        Me.treeViewEmail.BackColor = System.Drawing.SystemColors.Window
+        Me.treeViewEmail.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.treeViewEmail.Location = New System.Drawing.Point(0, 21)
+        Me.treeViewEmail.Margin = New System.Windows.Forms.Padding(2)
+        Me.treeViewEmail.Name = "treeViewEmail"
+        Me.treeViewEmail.Size = New System.Drawing.Size(370, 104)
+        Me.treeViewEmail.TabIndex = 1
+        '
+        'Panel5
+        '
+        Me.Panel5.BackColor = System.Drawing.SystemColors.ControlLightLight
+        Me.Panel5.Controls.Add(Me.TextBox1)
+        Me.Panel5.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Panel5.Location = New System.Drawing.Point(0, 0)
+        Me.Panel5.Margin = New System.Windows.Forms.Padding(2)
+        Me.Panel5.Name = "Panel5"
+        Me.Panel5.Size = New System.Drawing.Size(370, 21)
+        Me.Panel5.TabIndex = 0
+        '
+        'TextBox1
+        '
+        Me.TextBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.25!)
+        Me.TextBox1.Location = New System.Drawing.Point(3, 1)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(222, 17)
+        Me.TextBox1.TabIndex = 0
+        '
+        'Button23
+        '
+        Me.Button23.Location = New System.Drawing.Point(45, 63)
+        Me.Button23.Name = "Button23"
+        Me.Button23.Size = New System.Drawing.Size(209, 16)
+        Me.Button23.TabIndex = 2
+        Me.Button23.Text = "Previous"
+        Me.Button23.UseVisualStyleBackColor = True
+        '
+        'Panel8
+        '
+        Me.Panel8.Controls.Add(Me.lblStatus)
+        Me.Panel8.Controls.Add(Me.ProgressBar1)
+        Me.Panel8.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.Panel8.Location = New System.Drawing.Point(0, 268)
+        Me.Panel8.Margin = New System.Windows.Forms.Padding(2)
+        Me.Panel8.Name = "Panel8"
+        Me.Panel8.Size = New System.Drawing.Size(370, 20)
+        Me.Panel8.TabIndex = 1
+        '
+        'lblStatus
+        '
+        Me.lblStatus.AutoSize = True
+        Me.lblStatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.lblStatus.ForeColor = System.Drawing.SystemColors.ControlDarkDark
+        Me.lblStatus.Location = New System.Drawing.Point(244, 4)
+        Me.lblStatus.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.lblStatus.Name = "lblStatus"
+        Me.lblStatus.Size = New System.Drawing.Size(39, 13)
+        Me.lblStatus.TabIndex = 1
+        Me.lblStatus.Text = "Label3"
+        '
+        'ProgressBar1
+        '
+        Me.ProgressBar1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ProgressBar1.BackColor = System.Drawing.SystemColors.ControlDark
+        Me.ProgressBar1.Location = New System.Drawing.Point(287, 6)
+        Me.ProgressBar1.Margin = New System.Windows.Forms.Padding(2)
+        Me.ProgressBar1.Name = "ProgressBar1"
+        Me.ProgressBar1.Size = New System.Drawing.Size(80, 10)
+        Me.ProgressBar1.TabIndex = 0
+        '
+        'Panel6
+        '
+        Me.Panel6.BackColor = System.Drawing.SystemColors.ControlLightLight
+        Me.Panel6.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Panel6.Location = New System.Drawing.Point(0, 0)
+        Me.Panel6.Margin = New System.Windows.Forms.Padding(2)
+        Me.Panel6.Name = "Panel6"
+        Me.Panel6.Size = New System.Drawing.Size(370, 19)
+        Me.Panel6.TabIndex = 0
+        '
+        'Splitter1
+        '
+        Me.Splitter1.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Splitter1.Location = New System.Drawing.Point(0, 0)
+        Me.Splitter1.Margin = New System.Windows.Forms.Padding(2)
+        Me.Splitter1.Name = "Splitter1"
+        Me.Splitter1.Size = New System.Drawing.Size(370, 2)
+        Me.Splitter1.TabIndex = 0
+        Me.Splitter1.TabStop = False
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(865, 556)
         Me.Controls.Add(Me.SplitContainer1)
         Me.Controls.Add(Me.Panel3)
@@ -1068,37 +1225,42 @@ Partial Class Form1
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.MenuStrip1)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MainMenuStrip = Me.MenuStrip1
         Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "Form1"
-        Me.Text = "Form1"
+        Me.Text = "email sorter"
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel1.ResumeLayout(False)
+        Me.SplitContainer3.ResumeLayout(False)
         Me.panelHeader.ResumeLayout(False)
+        Me.TabControl1.ResumeLayout(False)
+        Me.TabPage1.ResumeLayout(False)
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.TableLayoutPanel1.PerformLayout()
         Me.Panel3.ResumeLayout(False)
         Me.SplitContainer1.Panel1.ResumeLayout(False)
         Me.SplitContainer1.Panel2.ResumeLayout(False)
         Me.SplitContainer1.ResumeLayout(False)
-        Me.Panel7.ResumeLayout(False)
-        Me.Panel7.PerformLayout()
-        Me.SplitContainer2.Panel1.ResumeLayout(False)
-        Me.SplitContainer2.Panel2.ResumeLayout(False)
-        Me.SplitContainer2.ResumeLayout(False)
-        Me.Panel8.ResumeLayout(False)
-        Me.Panel8.PerformLayout()
-        Me.TabControl1.ResumeLayout(False)
-        Me.TabPage1.ResumeLayout(False)
         Me.TabControl2.ResumeLayout(False)
         Me.TabPage3.ResumeLayout(False)
         Me.Panel9.ResumeLayout(False)
         Me.Panel9.PerformLayout()
         Me.Panel4.ResumeLayout(False)
-        Me.GroupBox1.ResumeLayout(False)
-        Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox3.ResumeLayout(False)
+        Me.GroupBox2.ResumeLayout(False)
+        Me.GroupBox1.ResumeLayout(False)
+        Me.Panel7.ResumeLayout(False)
+        Me.Panel7.PerformLayout()
+        Me.SplitContainer2.Panel1.ResumeLayout(False)
+        Me.SplitContainer2.Panel2.ResumeLayout(False)
+        Me.SplitContainer2.ResumeLayout(False)
+        Me.Panel5.ResumeLayout(False)
+        Me.Panel5.PerformLayout()
+        Me.Panel8.ResumeLayout(False)
+        Me.Panel8.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1173,4 +1335,14 @@ Partial Class Form1
     Friend WithEvents Button29 As Button
     Friend WithEvents Button30 As Button
     Friend WithEvents GroupBox1 As GroupBox
+    Friend WithEvents Button23 As Button
+    Friend WithEvents Button24 As Button
+    Friend WithEvents Button25 As Button
+    Friend WithEvents HelpToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents SplitContainer3 As SplitContainer
+    Friend WithEvents ViewToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents SearchToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents SettingsToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents HelpToolStripMenuItem1 As ToolStripMenuItem
+    Friend WithEvents TextBox1 As TextBox
 End Class

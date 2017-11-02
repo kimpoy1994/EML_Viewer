@@ -253,4 +253,12 @@ Public Class Form1
     Private Sub Button23_Click(sender As Object, e As EventArgs)
 
     End Sub
+
+    Private Sub Button23_Click_1(sender As Object, e As EventArgs) Handles Button23.Click
+
+    End Sub
+
+    Private Sub HelpToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles HelpToolStripMenuItem.Click
+
+    End Sub
 End Class
