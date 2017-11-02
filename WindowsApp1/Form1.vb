@@ -1,6 +1,11 @@
 ﻿Imports System.Text.RegularExpressions
+Imports System
+Imports System.IO
 Public Class Form1
+
     Dim dgv_datasource
+    Dim currentItem As String
+    Dim currentPath As String
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'Changing the colors of the label so that it is not visible on run
         txtSubject.BackColor = Me.BackColor
@@ -58,6 +63,7 @@ Public Class Form1
     Private Sub treeViewEmail_NodeMouseDoubleClick(sender As Object, e As TreeNodeMouseClickEventArgs) Handles treeViewEmail.NodeMouseDoubleClick
         'Get the directory of the double clicked node to fill up thee datagrid
         BackgroundWorker1.RunWorkerAsync(e.Node.FullPath)
+        currentPath = e.Node.FullPath
 
     End Sub
 
@@ -66,6 +72,7 @@ Public Class Form1
             Try
                 ' Load the email file using the selected row
                 Dim message = MimeKit.MimeMessage.Load(DataGridView1.Rows(e.RowIndex).Cells(0).Value)
+                currentItem = DataGridView1.Rows(e.RowIndex).Cells(0).Value
                 LoadEmail(message)
 
                 'If directory is not found
@@ -222,43 +229,99 @@ Public Class Form1
         End Try
     End Sub
 
-    Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
+    Private Sub Button19_Click(sender As Object, e As EventArgs) Handles Button19.Click
+        Dim destPath As String = currentPath + "\Normal\"
+        Dim filename As String = Path.GetFileName(currentItem)
 
+        If Not Directory.Exists(destpath) Then
+            Directory.CreateDirectory(destpath)
+        End If
+
+        Dim file = New FileInfo(currentItem)
+        file.MoveTo(Path.Combine(destPath, file.Name))
     End Sub
 
-    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
-        Dim itemPath As Array
+    Private Sub Button20_Click(sender As Object, e As EventArgs) Handles Button20.Click
+        Dim destPath As String = currentPath + "\Spam\"
+        Dim filename As String = Path.GetFileName(currentItem)
+
+        If Not Directory.Exists(destPath) Then
+            Directory.CreateDirectory(destPath)
+        End If
+
+        Dim file = New FileInfo(currentItem)
+        file.MoveTo(Path.Combine(destPath, file.Name))
     End Sub
 
-    Private Sub GroupBox1_Enter(sender As Object, e As EventArgs)
+    Private Sub Button22_Click(sender As Object, e As EventArgs) Handles Button22.Click
+        Dim destPath As String = currentPath + "\MML\"
+        Dim filename As String = Path.GetFileName(currentItem)
 
+        If Not Directory.Exists(destPath) Then
+            Directory.CreateDirectory(destPath)
+        End If
+
+        Dim file = New FileInfo(currentItem)
+        file.MoveTo(Path.Combine(destPath, file.Name))
     End Sub
 
-    Private Sub Label3_Click(sender As Object, e As EventArgs) Handles Label3.Click
+    Private Sub Button21_Click(sender As Object, e As EventArgs) Handles Button21.Click
+        Dim destPath As String = currentPath + "\Invalid\"
+        Dim filename As String = Path.GetFileName(currentItem)
 
+        If Not Directory.Exists(destPath) Then
+            Directory.CreateDirectory(destPath)
+        End If
+
+        Dim file = New FileInfo(currentItem)
+        file.MoveTo(Path.Combine(destPath, file.Name))
     End Sub
 
-    Private Sub Button26_Click(sender As Object, e As EventArgs)
+    Private Sub Button29_Click(sender As Object, e As EventArgs) Handles Button29.Click
+        Dim destPath As String = currentPath + "\Spam\AttachHash\"
+        Dim filename As String = Path.GetFileName(currentItem)
 
+        If Not Directory.Exists(destPath) Then
+            Directory.CreateDirectory(destPath)
+        End If
+
+        Dim file = New FileInfo(currentItem)
+        file.MoveTo(Path.Combine(destPath, file.Name))
     End Sub
 
-    Private Sub Button24_Click(sender As Object, e As EventArgs)
+    Private Sub Button27_Click(sender As Object, e As EventArgs) Handles Button27.Click
+        Dim destPath As String = currentPath + "\Spam\TagHash\"
+        Dim filename As String = Path.GetFileName(currentItem)
 
+        If Not Directory.Exists(destPath) Then
+            Directory.CreateDirectory(destPath)
+        End If
+
+        Dim file = New FileInfo(currentItem)
+        file.MoveTo(Path.Combine(destPath, file.Name))
     End Sub
 
-    Private Sub Button25_Click(sender As Object, e As EventArgs)
+    Private Sub Button28_Click(sender As Object, e As EventArgs) Handles Button28.Click
+        Dim destPath As String = currentPath + "\Spam\TextHash\"
+        Dim filename As String = Path.GetFileName(currentItem)
 
+        If Not Directory.Exists(destPath) Then
+            Directory.CreateDirectory(destPath)
+        End If
+
+        Dim file = New FileInfo(currentItem)
+        file.MoveTo(Path.Combine(destPath, file.Name))
     End Sub
 
-    Private Sub Button23_Click(sender As Object, e As EventArgs)
+    Private Sub Button30_Click(sender As Object, e As EventArgs) Handles Button30.Click
+        Dim destPath As String = currentPath + "\Spam\URLHash\"
+        Dim filename As String = Path.GetFileName(currentItem)
 
-    End Sub
+        If Not Directory.Exists(destPath) Then
+            Directory.CreateDirectory(destPath)
+        End If
 
-    Private Sub Button23_Click_1(sender As Object, e As EventArgs) Handles Button23.Click
-
-    End Sub
-
-    Private Sub HelpToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles HelpToolStripMenuItem.Click
-
+        Dim file = New FileInfo(currentItem)
+        file.MoveTo(Path.Combine(destPath, file.Name))
     End Sub
 End Class
