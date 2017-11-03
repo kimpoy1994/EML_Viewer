@@ -7,6 +7,7 @@ Public Class Form1
     Dim currentItem As String
     Dim currentPath As String
     Dim currentRow As Integer
+    Dim NodesThatMatch As New List(Of TreeNode)
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'Changing the colors of the label so that it is not visible on run
         txtSubject.BackColor = Me.BackColor
@@ -79,7 +80,13 @@ Public Class Form1
             Try
                 ' Load the email file using the selected row
                 Dim message = MimeKit.MimeMessage.Load(DataGridView1.Rows(e.RowIndex).Cells(0).Value)
+                Dim text = message.TextBody
+                Dim html = message.HtmlBody
+                Dim headers = message.Headers
                 currentItem = DataGridView1.Rows(e.RowIndex).Cells(0).Value
+                TextView.Text = text
+                HTMLView.Text = html
+
                 LoadEmail(message)
 
                 'If directory is not found
@@ -247,7 +254,80 @@ Public Class Form1
         End Try
     End Sub
 
-    Private Sub BtnNormal_Click(sender As Object, e As EventArgs) Handles btnNormal.Click
+    Private Function SearchTreeView(ByVal TV As TreeView, ByVal TextToFind As String) As TreeNode
+        'Empty previous
+        NodesThatMatch.Clear()
+
+        ' Keep calling Recursive search
+        For Each TN As TreeNode In TV.Nodes
+            If TN.FullPath.ToString = TextToFind Then
+                NodesThatMatch.Add(TN)
+            End If
+            RecursiveSearch(TN, TextToFind)
+        Next
+
+        If NodesThatMatch.Count > 0 Then
+            Return NodesThatMatch(0)
+        Else
+            Return Nothing
+        End If
+    End Function
+
+    Private Sub RecursiveSearch(ByVal treeNode As TreeNode, ByVal TextToFind As String)
+        ' Keep calling the test recursively
+        For Each TN As TreeNode In treeNode.Nodes
+            If TN.FullPath.ToString = TextToFind Then
+                NodesThatMatch.Add(TN)
+            End If
+
+            RecursiveSearch(TN, TextToFind)
+        Next
+    End Sub
+
+    Private Sub MoveMails(destpath As String, filename As String)
+        For Each item In DataGridView1.SelectedRows
+
+            Dim file = New FileInfo(item.Cells(0).Value.ToString)
+            file.MoveTo(Path.Combine(destpath, file.Name))
+        Next
+
+        For Each item In DataGridView1.SelectedRows
+            DataGridView1.Rows.RemoveAt(item.Index)
+        Next
+
+        Dim matchedNode = SearchTreeView(treeViewEmail, currentPath)
+
+        matchedNode.Nodes.Clear()
+        ' get the directory representing this node
+        Dim mNodeDirectory As IO.DirectoryInfo
+        mNodeDirectory = New IO.DirectoryInfo(matchedNode.Tag.ToString)
+        Try
+            ' add each subdirectory from the file system to the expanding node as a child node
+            For Each mDirectory As IO.DirectoryInfo In mNodeDirectory.GetDirectories
+                ' declare a child TreeNode for the next subdirectory
+                Dim mDirectoryNode As New TreeNode
+                ' store the full path to this directory in the child TreeNode's Tag property
+                mDirectoryNode.Tag = mDirectory.FullName
+                ' set the child TreeNodes's display text
+                mDirectoryNode.Text = mDirectory.Name
+                ' add a dummy TreeNode to this child TreeNode to make it expandable
+                mDirectoryNode.Nodes.Add("*DUMMY*")
+                ' add this child TreeNode to the expanding TreeNode
+                matchedNode.Nodes.Add(mDirectoryNode)
+
+                'additional comment
+            Next
+        Catch ex As Exception
+            MessageBox.Show("Directory currently inaccessible!", "Directory Inaccessible")
+        End Try
+        matchedNode.Expand()
+
+        Dim message = MimeKit.MimeMessage.Load(DataGridView1.Rows(currentRow).Cells(0).Value)
+        LoadEmail(message)
+
+    End Sub
+
+    Private Sub BtnNormal_Click(sender As Object, e As EventArgs) Handles btnNormal.Click, BtnNormal2.Click
         Dim destPath As String = currentPath + "\Normal\"
         Dim filename As String = Path.GetFileName(currentItem)
 
@@ -255,14 +335,11 @@ Public Class Form1
             Directory.CreateDirectory(destPath)
         End If
 
-        For Each item In DataGridView1.SelectedRows
+        MoveMails(destPath, filename)
 
-            Dim file = New FileInfo(item.Cells(0).Value.ToString)
-            file.MoveTo(Path.Combine(destPath, file.Name))
-        Next
     End Sub
 
-    Private Sub BtnSpam_Click(sender As Object, e As EventArgs) Handles BtnSpam.Click
+    Private Sub BtnSpam_Click(sender As Object, e As EventArgs) Handles BtnSpam.Click, BtnSpam2.Click
         Dim destPath As String = currentPath + "\Spam\"
         Dim filename As String = Path.GetFileName(currentItem)
 
@@ -270,14 +347,11 @@ Public Class Form1
             Directory.CreateDirectory(destPath)
         End If
 
-        For Each item In DataGridView1.SelectedRows
+        MoveMails(destPath, filename)
 
-            Dim file = New FileInfo(item.Cells(0).Value.ToString)
-            file.MoveTo(Path.Combine(destPath, file.Name))
-        Next
     End Sub
 
-    Private Sub BtnMML_Click(sender As Object, e As EventArgs) Handles BtnMML.Click
+    Private Sub BtnMML_Click(sender As Object, e As EventArgs) Handles BtnMML.Click, BtnMML2.Click
         Dim destPath As String = currentPath + "\MML\"
         Dim filename As String = Path.GetFileName(currentItem)
 
@@ -285,14 +359,11 @@ Public Class Form1
             Directory.CreateDirectory(destPath)
         End If
 
-        For Each item In DataGridView1.SelectedRows
+        MoveMails(destPath, filename)
 
-            Dim file = New FileInfo(item.Cells(0).Value.ToString)
-            file.MoveTo(Path.Combine(destPath, file.Name))
-        Next
     End Sub
 
-    Private Sub BtnInvalid_Click(sender As Object, e As EventArgs) Handles BtnInvalid.Click
+    Private Sub BtnInvalid_Click(sender As Object, e As EventArgs) Handles BtnInvalid.Click, BtnInvalid2.Click
         Dim destPath As String = currentPath + "\Invalid\"
         Dim filename As String = Path.GetFileName(currentItem)
 
@@ -300,15 +371,11 @@ Public Class Form1
             Directory.CreateDirectory(destPath)
         End If
 
-        For Each item In DataGridView1.SelectedRows
-
-            Dim file = New FileInfo(item.Cells(0).Value.ToString)
-            file.MoveTo(Path.Combine(destPath, file.Name))
-        Next
+        MoveMails(destPath, filename)
 
     End Sub
 
-    Private Sub Button29_Click(sender As Object, e As EventArgs) Handles Button29.Click
+    Private Sub BtnAttach_Click(sender As Object, e As EventArgs) Handles BtnAttach.Click, BtnAttach2.Click
         Dim destPath As String = currentPath + "\Spam\AttachHash\"
         Dim filename As String = Path.GetFileName(currentItem)
 
@@ -316,11 +383,11 @@ Public Class Form1
             Directory.CreateDirectory(destPath)
         End If
 
-        Dim file = New FileInfo(currentItem)
-        file.MoveTo(Path.Combine(destPath, file.Name))
+        MoveMails(destPath, filename)
+
     End Sub
 
-    Private Sub Button27_Click(sender As Object, e As EventArgs) Handles Button27.Click
+    Private Sub BtnTag_Click(sender As Object, e As EventArgs) Handles BtnTag.Click, BtnTag2.Click
         Dim destPath As String = currentPath + "\Spam\TagHash\"
         Dim filename As String = Path.GetFileName(currentItem)
 
@@ -328,11 +395,11 @@ Public Class Form1
             Directory.CreateDirectory(destPath)
         End If
 
-        Dim file = New FileInfo(currentItem)
-        file.MoveTo(Path.Combine(destPath, file.Name))
+        MoveMails(destPath, filename)
+
     End Sub
 
-    Private Sub Button28_Click(sender As Object, e As EventArgs) Handles Button28.Click
+    Private Sub BtnText_Click(sender As Object, e As EventArgs) Handles BtnText.Click, BtnText2.Click
         Dim destPath As String = currentPath + "\Spam\TextHash\"
         Dim filename As String = Path.GetFileName(currentItem)
 
@@ -340,11 +407,11 @@ Public Class Form1
             Directory.CreateDirectory(destPath)
         End If
 
-        Dim file = New FileInfo(currentItem)
-        file.MoveTo(Path.Combine(destPath, file.Name))
+        MoveMails(destPath, filename)
+
     End Sub
 
-    Private Sub Button30_Click(sender As Object, e As EventArgs) Handles Button30.Click
+    Private Sub BtnURL_Click(sender As Object, e As EventArgs) Handles BtnURL.Click, BtnURL2.Click
         Dim destPath As String = currentPath + "\Spam\URLHash\"
         Dim filename As String = Path.GetFileName(currentItem)
 
@@ -352,8 +419,8 @@ Public Class Form1
             Directory.CreateDirectory(destPath)
         End If
 
-        Dim file = New FileInfo(currentItem)
-        file.MoveTo(Path.Combine(destPath, file.Name))
+        MoveMails(destPath, filename)
+
     End Sub
 
     Private Sub btnPrev_Click(sender As Object, e As EventArgs) Handles btnPrev.Click
@@ -410,4 +477,71 @@ Public Class Form1
         currentItem = DataGridView1.Rows(currentRow).Cells(0).Value
         Debug.WriteLine(e.RowIndex)
     End Sub
+
+    Private Sub BtnHeuristics_Click(sender As Object, e As EventArgs) Handles BtnHeuristics.Click, BtnHeuristics2.Click
+        Dim destPath As String = currentPath + "\Spam\Heuristics\"
+        Dim filename As String = Path.GetFileName(currentItem)
+
+        If Not Directory.Exists(destPath) Then
+            Directory.CreateDirectory(destPath)
+        End If
+        MoveMails(destPath, filename)
+    End Sub
+
+    Private Sub BtnSignature_Click(sender As Object, e As EventArgs) Handles BtnSignature.Click, BtnSignature2.Click
+        Dim destPath As String = currentPath + "\Spam\Signature\"
+        Dim filename As String = Path.GetFileName(currentItem)
+
+        If Not Directory.Exists(destPath) Then
+            Directory.CreateDirectory(destPath)
+        End If
+
+        MoveMails(destPath, filename)
+    End Sub
+
+    Private Sub BtnBlacklist_Click(sender As Object, e As EventArgs) Handles BtnBlacklist.Click, BtnBlacklist2.Click
+        Dim destPath As String = currentPath + "\Spam\Blacklist\"
+        Dim filename As String = Path.GetFileName(currentItem)
+
+        If Not Directory.Exists(destPath) Then
+            Directory.CreateDirectory(destPath)
+        End If
+
+        MoveMails(destPath, filename)
+    End Sub
+
+    Private Sub BtnOthers_Click(sender As Object, e As EventArgs) Handles BtnOthers.Click
+        Dim destPath As String = currentPath + "\Spam\Others\"
+        Dim filename As String = Path.GetFileName(currentItem)
+
+        If Not Directory.Exists(destPath) Then
+            Directory.CreateDirectory(destPath)
+        End If
+
+        MoveMails(destPath, filename)
+    End Sub
+
+    Private Sub BtnNoSoln_Click(sender As Object, e As EventArgs) Handles BtnNoSoln.Click
+        Dim destPath As String = currentPath + "\Spam\No Solution\"
+        Dim filename As String = Path.GetFileName(currentItem)
+
+        If Not Directory.Exists(destPath) Then
+            Directory.CreateDirectory(destPath)
+        End If
+
+        MoveMails(destPath, filename)
+    End Sub
+
+    Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
+        Dim destPath As String = currentPath + "\Skip\"
+        Dim filename As String = Path.GetFileName(currentItem)
+
+        If Not Directory.Exists(destPath) Then
+            Directory.CreateDirectory(destPath)
+        End If
+
+        MoveMails(destPath, filename)
+
+    End Sub
+
 End Class
