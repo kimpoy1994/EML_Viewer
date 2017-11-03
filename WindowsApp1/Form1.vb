@@ -6,6 +6,7 @@ Public Class Form1
     Dim dgv_datasource
     Dim currentItem As String
     Dim currentPath As String
+    Dim currentRow As Integer
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'Changing the colors of the label so that it is not visible on run
         txtSubject.BackColor = Me.BackColor
@@ -25,14 +26,14 @@ Public Class Form1
         'treeViewEmail.Nodes.Add(mRootNode)
     End Sub
 
-    Private Sub treeViewEmail_BeforeCollapse(ByVal sender As Object, ByVal e As System.Windows.Forms.TreeViewCancelEventArgs) Handles treeViewEmail.BeforeCollapse
+    Private Sub TreeViewEmail_BeforeCollapse(ByVal sender As Object, ByVal e As System.Windows.Forms.TreeViewCancelEventArgs) Handles treeViewEmail.BeforeCollapse
         ' clear the node that is being collapsed
         e.Node.Nodes.Clear()
         ' add a dummy TreeNode to the node being collapsed so it is expandable
         e.Node.Nodes.Add("*DUMMY*")
     End Sub
 
-    Private Sub treeViewEmail_BeforeExpand(ByVal sender As Object, ByVal e As System.Windows.Forms.TreeViewCancelEventArgs) Handles treeViewEmail.BeforeExpand
+    Private Sub TreeViewEmail_BeforeExpand(ByVal sender As Object, ByVal e As System.Windows.Forms.TreeViewCancelEventArgs) Handles treeViewEmail.BeforeExpand
         ' clear the expanding node so we can re-populate it, or else we end up with duplicate nodes
         e.Node.Nodes.Clear()
         ' get the directory representing this node
@@ -60,8 +61,14 @@ Public Class Form1
 
     End Sub
 
-    Private Sub treeViewEmail_NodeMouseDoubleClick(sender As Object, e As TreeNodeMouseClickEventArgs) Handles treeViewEmail.NodeMouseDoubleClick
+    Private Sub TreeViewEmail_NodeMouseDoubleClick(sender As Object, e As TreeNodeMouseClickEventArgs) Handles treeViewEmail.NodeMouseDoubleClick
         'Get the directory of the double clicked node to fill up thee datagrid
+        If BackgroundWorker1.IsBusy Then
+            BackgroundWorker1.CancelAsync()
+            While BackgroundWorker1.IsBusy
+                Application.DoEvents()
+            End While
+        End If
         BackgroundWorker1.RunWorkerAsync(e.Node.FullPath)
         currentPath = e.Node.FullPath
 
@@ -161,53 +168,64 @@ Public Class Form1
     End Sub
 
     Private Sub BackgroundWorker1_DoWork(sender As Object, e As System.ComponentModel.DoWorkEventArgs) Handles BackgroundWorker1.DoWork
-        Try
-            'Create a new data table
-            Dim dt As DataTable = New DataTable
-            'added somethins
-            'Add the following columns:
-            '                          Name
-            '                          Subject
-            '                          From
-            ''                         Size
-            dt.Columns.AddRange({New DataColumn("Dir"), New DataColumn("Name"), New DataColumn("Subject"), New DataColumn("From"), New DataColumn("Size (KB)")})
+        Do While True
+            If BackgroundWorker1.CancellationPending = True Then
+                e.Cancel = True
+                Exit Do
+            Else
+                Try
+                    'Create a new data table
+                    Dim dt As DataTable = New DataTable
+                    'added somethins
+                    'Add the following columns:
+                    '                          Name
+                    '                          Subject
+                    '                          From
+                    ''                         Size
+                    dt.Columns.AddRange({New DataColumn("Dir"), New DataColumn("Name"), New DataColumn("Subject"), New DataColumn("From"), New DataColumn("Size (KB)")})
 
-            'Loop through each file in the directory
-            Dim counter = New IO.DirectoryInfo(e.Argument).GetFiles.Count
-            Dim i As Integer = 0
-            For Each file As IO.FileInfo In New IO.DirectoryInfo(e.Argument).GetFiles
-                'Create a new row
-                If file.Extension = ".eml" Then
+                    'Loop through each file in the directory
+                    Dim counter = New IO.DirectoryInfo(e.Argument).GetFiles.Count
+                    Dim i As Integer = 0
+                    For Each file As IO.FileInfo In New IO.DirectoryInfo(e.Argument).GetFiles
+                        If BackgroundWorker1.CancellationPending = True Then
+                            Exit For
+                        End If
+                        'Create a new row
+                        If file.Extension = ".eml" Then
 
-                    Dim dr As DataRow = dt.NewRow
+                            Dim dr As DataRow = dt.NewRow
 
-                    Dim message = MimeKit.MimeMessage.Load(file.FullName)
+                            Dim message = MimeKit.MimeMessage.Load(file.FullName)
 
-                    'Set the data
-                    'Full directory, Filename, Subject, From, File size
-                    dr(0) = file.FullName
-                    dr(1) = file.Name
-                    dr(2) = message.Subject
-                    dr(3) = message.From
-                    dr(4) = file.Length / 1000
+                            'Set the data
+                            'Full directory, Filename, Subject, From, File size
+                            dr(0) = file.FullName
+                            dr(1) = file.Name
+                            dr(2) = message.Subject
+                            dr(3) = message.From
+                            dr(4) = file.Length / 1000
 
 
-                    'Add the row to the data table
-                    dt.Rows.Add(dr)
-                End If
-                i += 1
-                Dim state = New Integer() {i, counter}
-                BackgroundWorker1.ReportProgress((i / counter) * 100, state)
+                            'Add the row to the data table
+                            dt.Rows.Add(dr)
+                        End If
+                        i += 1
+                        Dim state = New Integer() {i, counter}
+                        BackgroundWorker1.ReportProgress((i / counter) * 100, state)
 
-            Next
+                    Next
 
-            'Return the data table
-            dgv_datasource = dt
-        Catch ex As Exception
-            Console.WriteLine(ex.ToString)
+                    'Return the data table
+                    dgv_datasource = dt
+                    Exit Do
+                Catch ex As Exception
+                    Console.WriteLine(ex.ToString)
 
-            'Return nothing if something fails
-        End Try
+                    'Return nothing if something fails
+                End Try
+            End If
+        Loop
     End Sub
 
     Private Sub BackgroundWorker1_Workcompleted(sender As Object, e As System.ComponentModel.RunWorkerCompletedEventArgs) Handles BackgroundWorker1.RunWorkerCompleted
@@ -229,19 +247,22 @@ Public Class Form1
         End Try
     End Sub
 
-    Private Sub Button19_Click(sender As Object, e As EventArgs) Handles Button19.Click
+    Private Sub BtnNormal_Click(sender As Object, e As EventArgs) Handles btnNormal.Click
         Dim destPath As String = currentPath + "\Normal\"
         Dim filename As String = Path.GetFileName(currentItem)
 
-        If Not Directory.Exists(destpath) Then
-            Directory.CreateDirectory(destpath)
+        If Not Directory.Exists(destPath) Then
+            Directory.CreateDirectory(destPath)
         End If
 
-        Dim file = New FileInfo(currentItem)
-        file.MoveTo(Path.Combine(destPath, file.Name))
+        For Each item In DataGridView1.SelectedRows
+
+            Dim file = New FileInfo(item.Cells(0).Value.ToString)
+            file.MoveTo(Path.Combine(destPath, file.Name))
+        Next
     End Sub
 
-    Private Sub Button20_Click(sender As Object, e As EventArgs) Handles Button20.Click
+    Private Sub BtnSpam_Click(sender As Object, e As EventArgs) Handles BtnSpam.Click
         Dim destPath As String = currentPath + "\Spam\"
         Dim filename As String = Path.GetFileName(currentItem)
 
@@ -249,11 +270,14 @@ Public Class Form1
             Directory.CreateDirectory(destPath)
         End If
 
-        Dim file = New FileInfo(currentItem)
-        file.MoveTo(Path.Combine(destPath, file.Name))
+        For Each item In DataGridView1.SelectedRows
+
+            Dim file = New FileInfo(item.Cells(0).Value.ToString)
+            file.MoveTo(Path.Combine(destPath, file.Name))
+        Next
     End Sub
 
-    Private Sub Button22_Click(sender As Object, e As EventArgs) Handles Button22.Click
+    Private Sub BtnMML_Click(sender As Object, e As EventArgs) Handles BtnMML.Click
         Dim destPath As String = currentPath + "\MML\"
         Dim filename As String = Path.GetFileName(currentItem)
 
@@ -261,11 +285,14 @@ Public Class Form1
             Directory.CreateDirectory(destPath)
         End If
 
-        Dim file = New FileInfo(currentItem)
-        file.MoveTo(Path.Combine(destPath, file.Name))
+        For Each item In DataGridView1.SelectedRows
+
+            Dim file = New FileInfo(item.Cells(0).Value.ToString)
+            file.MoveTo(Path.Combine(destPath, file.Name))
+        Next
     End Sub
 
-    Private Sub Button21_Click(sender As Object, e As EventArgs) Handles Button21.Click
+    Private Sub BtnInvalid_Click(sender As Object, e As EventArgs) Handles BtnInvalid.Click
         Dim destPath As String = currentPath + "\Invalid\"
         Dim filename As String = Path.GetFileName(currentItem)
 
@@ -273,8 +300,12 @@ Public Class Form1
             Directory.CreateDirectory(destPath)
         End If
 
-        Dim file = New FileInfo(currentItem)
-        file.MoveTo(Path.Combine(destPath, file.Name))
+        For Each item In DataGridView1.SelectedRows
+
+            Dim file = New FileInfo(item.Cells(0).Value.ToString)
+            file.MoveTo(Path.Combine(destPath, file.Name))
+        Next
+
     End Sub
 
     Private Sub Button29_Click(sender As Object, e As EventArgs) Handles Button29.Click
@@ -323,5 +354,60 @@ Public Class Form1
 
         Dim file = New FileInfo(currentItem)
         file.MoveTo(Path.Combine(destPath, file.Name))
+    End Sub
+
+    Private Sub btnPrev_Click(sender As Object, e As EventArgs) Handles btnPrev.Click
+        Try
+            'Load the email file using the selected row
+            DataGridView1.Rows(currentRow).Selected = False
+            DataGridView1.Rows(currentRow - 1).Selected = True
+            If currentRow > 0 Then
+                currentRow -= 1
+            End If
+
+            Dim message = MimeKit.MimeMessage.Load(DataGridView1.Rows(currentRow).Cells(0).Value)
+            currentItem = DataGridView1.Rows(currentRow).Cells(0).Value
+            Debug.WriteLine(currentRow)
+            LoadEmail(message)
+
+            'If the directory is not found
+        Catch ex As IO.DirectoryNotFoundException
+            MessageBox.Show("File not found!")
+            Me.Controls.Clear()
+            InitializeComponent()
+            Form1_Load(e, e)
+        Catch ex As Exception
+            'TODO
+        End Try
+    End Sub
+
+    Private Sub btnNext_Click(sender As Object, e As EventArgs) Handles btnNext.Click
+        Try
+            'Load the email file using the selected row
+            DataGridView1.Rows(currentRow).Selected = False
+            DataGridView1.Rows(currentRow + 1).Selected = True
+            If currentRow < DataGridView1.RowCount Then
+                currentRow += 1
+            End If
+            Dim message = MimeKit.MimeMessage.Load(DataGridView1.Rows(currentRow).Cells(0).Value)
+            currentItem = DataGridView1.Rows(currentRow).Cells(0).Value
+            Debug.WriteLine(currentRow)
+            LoadEmail(message)
+
+            'If the directory is not found
+        Catch ex As IO.DirectoryNotFoundException
+            MessageBox.Show("File not found!")
+            Me.Controls.Clear()
+            InitializeComponent()
+            Form1_Load(e, e)
+        Catch ex As Exception
+            'TODO
+        End Try
+    End Sub
+
+    Private Sub DataGridView1_SelectionChanged(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.RowEnter
+        currentRow = e.RowIndex
+        currentItem = DataGridView1.Rows(currentRow).Cells(0).Value
+        Debug.WriteLine(e.RowIndex)
     End Sub
 End Class
